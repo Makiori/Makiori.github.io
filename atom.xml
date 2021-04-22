@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-04-21T15:48:17.768Z</updated>
+  <updated>2021-04-22T14:56:09.677Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,31 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>第二篇博客</title>
-    <link href="http://example.com/2021/04/21/%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
-    <id>http://example.com/2021/04/21/%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2/</id>
-    <published>2021-04-21T15:46:11.000Z</published>
-    <updated>2021-04-21T15:48:17.768Z</updated>
-    
-    <content type="html"><![CDATA[<p>我在想要不要为了一点小事写博客.</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;我在想要不要为了一点小事写博客.&lt;/p&gt;
-</summary>
-      
-    
-    
-    
-    <category term="blog" scheme="http://example.com/categories/blog/"/>
-    
-    
-    <category term="日常" scheme="http://example.com/tags/%E6%97%A5%E5%B8%B8/"/>
-    
-  </entry>
   
   <entry>
     <title>第一篇博客</title>
