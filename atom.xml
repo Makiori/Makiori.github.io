@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-05-06T07:33:15.089Z</updated>
+  <updated>2021-05-06T07:46:27.657Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>2021年的五一假期</title>
-    <link href="http://example.com/2021/05/04/%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
-    <id>http://example.com/2021/05/04/%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2/</id>
+    <link href="http://example.com/2021/05/04/blog/%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://example.com/2021/05/04/blog/%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2/</id>
     <published>2021-05-04T13:31:58.000Z</published>
-    <updated>2021-05-06T07:33:15.089Z</updated>
+    <updated>2021-05-06T07:46:27.657Z</updated>
     
     <content type="html"><![CDATA[<h1 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h1><p>今年的五一假期有5天，虽然前后都要调课，但是由于课本来就不是很多，所以没所谓。<br>反正对处于学习疲倦期的我来说，可以回家的小长假真的是太感激了。</p><h1 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h1><p>十年炼金无人问,一朝肉腿天下知。我就是从莱莎这代知晓并且入坑炼金工房系列的人。<br>说来惭愧，写这篇博客的时候还没有通关，因为买了pc版后才发觉这游戏适合用ns玩。<br>于是这时刚好遇上了《不可思议的炼金术士合集》DX版发售的消息，再加上曾经微博上的互关，五风老师的安利。<br>趁这次假期，我就去入手了，苏菲真可爱！（目前进度为：苏菲的炼金工房 ～不可思议书的炼金术士～ DX）<br>如果有时间的话，会写一下游戏感想。（挖个坑，以后会在博客上写一些对玩过的游戏的感想）<br><img src="https://makiori.oss-cn-beijing.aliyuncs.com/%E4%BA%94%E4%B8%80%E5%81%87%E6%9C%9F/5562DFAA95D46B7B0959CD02AFB25040.jpg?versionId=CAEQERiBgMCB9tHeyRciIDNjZGViOWE3YTkwNDRlZWNhYzYwOGYyYzE5NDczNzQy" alt="是我的新游戏哦"></p><h1 id="吃的（别问为什么专门弄一个标题）"><a href="#吃的（别问为什么专门弄一个标题）" class="headerlink" title="吃的（别问为什么专门弄一个标题）"></a>吃的（别问为什么专门弄一个标题）</h1><p>在华南秋叶原买游戏时，偶然发现的店，味道不错。<br><img src="https://makiori.oss-cn-beijing.aliyuncs.com/%E4%BA%94%E4%B8%80%E5%81%87%E6%9C%9F/435819689BB3F21AEE308DE013709219.jpg?versionId=CAEQERiBgICC9tHeyRciIGI3NjMzNWNkZDkwMDQ5ODU4MGJjNjY4NDZiMDhkNDU4" alt="章鱼烧"></p><p>跟好久没见的网络群友，一起去漫展玩了一天，晚餐自然就是经典的萨莉亚了。<br><img src="https://makiori.oss-cn-beijing.aliyuncs.com/%E4%BA%94%E4%B8%80%E5%81%87%E6%9C%9F/5671C8145163EC6946CFA5DC0B1A340C.jpg?versionId=CAEQERiBgICJ9tHeyRciIDQ5MGViNjRlYzMzMjQ4M2RhYWY1ZmM2ODM3Y2E4ZTY3" alt="萨"></p><h1 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h1><p>好好地休息了一下，接下来得调整好自己，迎接后面的学习。</p>]]></content>
     
@@ -42,10 +42,10 @@
   
   <entry>
     <title>第一篇博客</title>
-    <link href="http://example.com/2021/04/20/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
-    <id>http://example.com/2021/04/20/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</id>
+    <link href="http://example.com/2021/04/20/blog/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://example.com/2021/04/20/blog/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</id>
     <published>2021-04-20T07:31:49.000Z</published>
-    <updated>2021-05-06T07:12:17.491Z</updated>
+    <updated>2021-05-06T07:46:25.095Z</updated>
     
     <content type="html"><![CDATA[<h1 id="关于博客"><a href="#关于博客" class="headerlink" title="关于博客"></a>关于博客</h1><p>上一年建的博客，因为个人原因删除了。<br>主要就是当时选的主题过于复杂，后面不想整理。<br>再加上放了太多可能涉及版权问题的四格漫画。<br>（虽然说本来就经常做灰色地带的勾当）<br>一二月放寒假的时候，每天躺在床上什么都不想做，所以就拖到了开学。<br>但有动力做事的情况下，还是出了一系列的意外，就不多说了。<br>于是摸鱼摸了几个月之后，终于在19岁生日的时候，重新建好了自己的小地盘。<br>后面会专门写一篇关于如何用 Hexo+GitPages 建立个人博客的文章。<br>算是给自己留个记录，也希望能在以后帮到想建个人博客的朋友。</p><h1 id="关于现状"><a href="#关于现状" class="headerlink" title="关于现状"></a>关于现状</h1><p>这摸过去的几个月里，发生了很多事情，比如说我的人际关系就发生了翻天覆地的变化。<br>嘛，有相遇就会有分别，一段关系的结束或许会是另一段关系的开始呢？<br>而且我也深刻地认识到了自己在人际交往中的种种问题，<br>于是我注销掉了自己的微博账号，还退掉了许多已经没有交流的QQ群。<br>在圈子里面彻底消失，而且已经没有回归的机会了。<br>希望自己能在下一个圈子里有更为理想的形态。<br>我一直在盼望自己的人生会发生不同寻常的事情，<br>但当它已经在发生变化的时候，我却没有意识到。</p><h1 id="关于未来"><a href="#关于未来" class="headerlink" title="关于未来"></a>关于未来</h1><p>以后会在这里分享一下自己的学习情况，以及生活上各种各样的小事情。<br>还会稍微放一些翻译工作，如果还能有这样的工作机会的话，<br>又或者是还能遇到让自己兴奋的事物的话。<br>最后还有自己的脑洞，属于我的牧尾宇宙。<br>会慢慢地更新，能写多少就不知道了。<br>先放一个题目：《角落里的魔女》<br>嗯，然后还有很多想尝试的事情，比如说：制作游戏啊，到处旅行然后用视频记录下来之类的。<br>嘛，只有一次的人生，应该好好地享受。</p>]]></content>
     
