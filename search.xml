@@ -16,20 +16,22 @@
       </tags>
   </entry>
   <entry>
-    <title>预告</title>
-    <url>/2021/05/24/blog/%E9%A2%84%E5%91%8A/</url>
-    <content><![CDATA[<h1 id="写在开头"><a href="#写在开头" class="headerlink" title="写在开头"></a>写在开头</h1><p>近期会有博客更新，具体是什么先暂时买个关子。<br>发现了评论无法长期展示的问题，虽然后台仍然有记录<br>找点时间看看有没有解决的方法，若没有则会对评论系统进行更换。</p>
-<h1 id="因为太水了所以放点群友语录"><a href="#因为太水了所以放点群友语录" class="headerlink" title="因为太水了所以放点群友语录"></a>因为太水了所以放点群友语录</h1><p><img src="https://makiori.oss-cn-beijing.aliyuncs.com/%E7%BE%A4%E5%8F%8B%E8%AF%AD%E5%BD%95%E5%8A%A0%E5%8D%9A%E5%AE%A2%E9%A2%84%E5%91%8A/1C3C2D323BD4355C5B3C2BBFA3684285.jpg?versionId=CAEQERiBgMDwlKf7zBciIGMxYTk3ZWI4MTNiYzRmODhhNGI4NTJhZGI5NzRjZGZh" alt="1"></p>
-<p><img src="https://makiori.oss-cn-beijing.aliyuncs.com/%E7%BE%A4%E5%8F%8B%E8%AF%AD%E5%BD%95%E5%8A%A0%E5%8D%9A%E5%AE%A2%E9%A2%84%E5%91%8A/4ACAB67A71A0AD53131C0D4304ADDE4A.jpg?versionId=CAEQERiBgMDxlKf7zBciIGI5MmJjNzViOThkMTQ1YjI4ZmE3NmI4Y2ZjMzA4YTFi" alt="2"></p>
-<p><img src="https://makiori.oss-cn-beijing.aliyuncs.com/%E7%BE%A4%E5%8F%8B%E8%AF%AD%E5%BD%95%E5%8A%A0%E5%8D%9A%E5%AE%A2%E9%A2%84%E5%91%8A/B796FFC8CFF65B3C83853B782DB4463B.jpg?versionId=CAEQERiBgIDflKf7zBciIDViNzM1ZmMyYjQ1MjRhNGJiODU2OTJhZjhiM2JmMGU0" alt="3"></p>
-<p><img src="https://makiori.oss-cn-beijing.aliyuncs.com/%E7%BE%A4%E5%8F%8B%E8%AF%AD%E5%BD%95%E5%8A%A0%E5%8D%9A%E5%AE%A2%E9%A2%84%E5%91%8A/FD0A870301BB4CC185D0F0871C6A2C57.jpg?versionId=CAEQERiBgMD6lKf7zBciIGYyNTA0ZmY2YjY1OTQ5MWNiOGY1ODcyYmI1MGVkMTFj" alt="4"></p>
-<p><img src="https://makiori.oss-cn-beijing.aliyuncs.com/%E7%BE%A4%E5%8F%8B%E8%AF%AD%E5%BD%95%E5%8A%A0%E5%8D%9A%E5%AE%A2%E9%A2%84%E5%91%8A/7~SMZR7$GQ($20P4F@Y_AW2.png?versionId=CAEQERiBgID_4bP7zBciIDNhOWQ2ODg4MmRlNzRhYWNhYzQ0OGE0OWNjN2FiYzBm" alt="5"></p>
+    <title>初识数据结构</title>
+    <url>/2021/05/29/blog/%E5%88%9D%E8%AF%86%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</url>
+    <content><![CDATA[<h1 id="写在开头"><a href="#写在开头" class="headerlink" title="写在开头"></a>写在开头</h1><p>之前说好要整理出一篇<br>关于如何使用 “GitHub Pages + hexo” 创建博客<br>目前没有一点进展，单纯是因为懒。<br>到六月份就得忙起来了，所以就更没有时间了<br>于是便安排在暑假里吧。<br>由于在自学的过程中，认识到了数据结构<br>我对此起了些许兴趣<br>为了让自己对数据结构有所记忆<br>所以就想先整理出这篇“初识数据结构”的博客。</p>
+<h1 id="接触数据结构"><a href="#接触数据结构" class="headerlink" title="接触数据结构"></a>接触数据结构</h1><p>在我开始学习算法的时候，教材首先就给我讲了数据结构的基础<br>这说明数据结构与算法的关联性<br>程序设计 = 数据结构 + 算法。</p>
+<p>本着对知识的好奇心，开始了对数据结构的学习，<br>我对于数据结构的理解是：它是计算机存储数据的方式。<br>数据以怎样的组织，怎样的存储格式，被计算机所管理。</p>
+<h1 id="数据结构分类"><a href="#数据结构分类" class="headerlink" title="数据结构分类"></a>数据结构分类</h1><p>数据结构分为 逻辑结构 以及 物理结构</p>
+<p>逻辑结构是指数据与数据之间的关系<br>可以分为<br>线性结构 ：顺序表，栈，队列<br>以及<br>非线性结构 ：树形结构，图形结构</p>
+<p>物理结构是指数据在计算机是以何种方式存储的<br>也就是所谓的映像<br>分为<br>顺序存储结构 ：数组<br>和<br>链序存储结构 ：链表</p>
+<h1 id="八大数据结构"><a href="#八大数据结构" class="headerlink" title="八大数据结构"></a>八大数据结构</h1><p>Array（数组）<br>Stack（栈）<br>Linked List（链表）<br>Graph（图）<br>Hash（散列表）<br>Queue（队列）<br>Tree（树）<br>Heap（堆）</p>
 ]]></content>
       <categories>
-        <category>预告</category>
+        <category>blog</category>
       </categories>
       <tags>
-        <tag>预告</tag>
+        <tag>学习</tag>
+        <tag>日常</tag>
       </tags>
   </entry>
   <entry>
