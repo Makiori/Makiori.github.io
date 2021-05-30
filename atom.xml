@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-05-30T07:55:24.951Z</updated>
+  <updated>2021-05-30T08:11:03.490Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,15 +17,29 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>题库</title>
-    <link href="http://example.com/2021/05/30/%E9%A2%98%E5%BA%93/%E9%A2%98%E5%BA%93/"/>
-    <id>http://example.com/2021/05/30/%E9%A2%98%E5%BA%93/%E9%A2%98%E5%BA%93/</id>
+    <title>题库第一期</title>
+    <link href="http://example.com/2021/05/30/%E9%A2%98%E5%BA%93/%E9%A2%98%E5%BA%93%E7%AC%AC%E4%B8%80%E6%9C%9F/"/>
+    <id>http://example.com/2021/05/30/%E9%A2%98%E5%BA%93/%E9%A2%98%E5%BA%93%E7%AC%AC%E4%B8%80%E6%9C%9F/</id>
     <published>2021-05-30T07:54:59.000Z</published>
-    <updated>2021-05-30T07:55:24.951Z</updated>
+    <updated>2021-05-30T08:11:03.490Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h1><p>放一点学习过程中，觉得有意思的题目。</p><h1 id="进入题库理由"><a href="#进入题库理由" class="headerlink" title="进入题库理由"></a>进入题库理由</h1><p>在学习数据结构的过程中，接触到了栈与队列。<br>栈的特性是先入后出<br>而队列的特性是先入先出<br>明明看起来并不相干，但这二者却都能在通过一点算法的帮助下实现对方。</p><h1 id="如何用栈实现队列"><a href="#如何用栈实现队列" class="headerlink" title="如何用栈实现队列"></a>如何用栈实现队列</h1><pre><code>import java.util.Stack;public class test&#123;    private Stack&lt;Integer&gt; a = new Stack&lt;Integer&gt;();           private Stack&lt;Integer&gt; b = new Stack&lt;Integer&gt;();    public void enQueue(int element)    &#123;        a.push(element);        while(!a.empty())        &#123;            b.push(a.pop());        &#125;    &#125;    public Integer deQueue()    &#123;        if(b.empty())        &#123;            if(a.empty())            &#123;                return null;            &#125;        &#125;        return b.pop();    &#125;    public Integer top()    &#123;        return b.peek();    &#125;    public boolean empty()    &#123;        return b.empty();    &#125;    public static void main(String[] args)    &#123;        test t = new test();        t.enQueue(1);        t.enQueue(2);        t.enQueue(3);        t.enQueue(4);        t.deQueue();        t.deQueue();        System.out.println(t.top());        System.out.println(t.empty());    &#125;&#125;</code></pre><h1 id="如何用队列实现栈"><a href="#如何用队列实现栈" class="headerlink" title="如何用队列实现栈"></a>如何用队列实现栈</h1><pre><code>import java.util.LinkedList;import java.util.Queue;public class test2 &#123;    private Queue&lt;Integer&gt; a = new LinkedList();    private Queue&lt;Integer&gt; b = new LinkedList();    public void push(int element)    &#123;        a.offer(element);        while(!b.isEmpty())        &#123;            a.offer(b.poll());        &#125;        Queue temp = a;        a = b;        b = temp;    &#125;    public int pop()    &#123;        return b.poll();    &#125;    public int top()    &#123;        return b.peek();    &#125;    public boolean empty()    &#123;        return b.isEmpty();    &#125;    public static void main(String[] args)    &#123;        test2 a = new test2();        a.push(1);        a.push(2);        a.pop();        System.out.println(a.top());        System.out.println(a.empty());    &#125;&#125;</code></pre><h1 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h1><p>以上就是第一期的题库。<br>没错，我又在水博客了。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;开头&quot;&gt;&lt;a href=&quot;#开头&quot; class=&quot;headerlink&quot; title=&quot;开头&quot;&gt;&lt;/a&gt;开头&lt;/h1&gt;&lt;p&gt;放一点学习过程中，觉得有意思的题目。&lt;/p&gt;
+&lt;h1 id=&quot;进入题库理由&quot;&gt;&lt;a href=&quot;#进入题库理由&quot; class=&quot;header</summary>
+      
     
     
     
+    <category term="Questions" scheme="http://example.com/categories/Questions/"/>
     
+    
+    <category term="java" scheme="http://example.com/tags/java/"/>
+    
+    <category term="题库" scheme="http://example.com/tags/%E9%A2%98%E5%BA%93/"/>
     
   </entry>
   
