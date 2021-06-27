@@ -1,161 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search>
-  <entry>
-    <title>第一篇博客</title>
-    <url>/2021/04/20/blog/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<h1 id="关于博客"><a href="#关于博客" class="headerlink" title="关于博客"></a>关于博客</h1><p>上一年建的博客，因为个人原因删除了。<br>主要就是当时选的主题过于复杂，后面不想整理。<br>再加上放了太多可能涉及版权问题的四格漫画。<br>（虽然说本来就经常做灰色地带的勾当）<br>一二月放寒假的时候，每天躺在床上什么都不想做，所以就拖到了开学。<br>但有动力做事的情况下，还是出了一系列的意外，就不多说了。<br>于是摸鱼摸了几个月之后，终于在19岁生日的时候，重新建好了自己的小地盘。<br>后面会专门写一篇关于如何用 Hexo+GitPages 建立个人博客的文章。<br>算是给自己留个记录，也希望能在以后帮到想建个人博客的朋友。</p>
-<h1 id="关于现状"><a href="#关于现状" class="headerlink" title="关于现状"></a>关于现状</h1><p>这摸过去的几个月里，发生了很多事情，比如说我的人际关系就发生了翻天覆地的变化。<br>嘛，有相遇就会有分别，一段关系的结束或许会是另一段关系的开始呢？<br>而且我也深刻地认识到了自己在人际交往中的种种问题，<br>于是我注销掉了自己的微博账号，还退掉了许多已经没有交流的QQ群。<br>在圈子里面彻底消失，而且已经没有回归的机会了。<br>希望自己能在下一个圈子里有更为理想的形态。<br>我一直在盼望自己的人生会发生不同寻常的事情，<br>但当它已经在发生变化的时候，我却没有意识到。</p>
-<h1 id="关于未来"><a href="#关于未来" class="headerlink" title="关于未来"></a>关于未来</h1><p>以后会在这里分享一下自己的学习情况，以及生活上各种各样的小事情。<br>还会稍微放一些翻译工作，如果还能有这样的工作机会的话，<br>又或者是还能遇到让自己兴奋的事物的话。<br>最后还有自己的脑洞，属于我的牧尾宇宙。<br>会慢慢地更新，能写多少就不知道了。<br>先放一个题目：《角落里的魔女》<br>嗯，然后还有很多想尝试的事情，比如说：制作游戏啊，到处旅行然后用视频记录下来之类的。<br>嘛，只有一次的人生，应该好好地享受。</p>
-]]></content>
+<search> 
+  
+  
+    
+    <entry>
+      <title>使用Pytorch实现mnist手写数字识别</title>
+      <link href="2021/06/22/blog/%E7%AC%AC%E4%B8%89%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
+      <url>2021/06/22/blog/%E7%AC%AC%E4%B8%89%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
+      
+        <content type="html"><![CDATA[<h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>我其实暂时根本不想写这方面内容的文章，<br>一是学习Python的计划在暑假，对还没了解Python语法的自己来说<br>代码肯定看得一头雾水<br>就算不是，也因为只是摘抄代码的操作<br>其实学不到什么深层的东西。<br>不过既然人工智能课的结课作业要写项目文档，我就顺便更一下博客而已。<br>（其实说到底就是逮到机会想水博客而已。）<br>从下面开始就是作业了。</p><h1 id="基于Pytorch的MNIST手写数字识别"><a href="#基于Pytorch的MNIST手写数字识别" class="headerlink" title="基于Pytorch的MNIST手写数字识别"></a>基于Pytorch的MNIST手写数字识别</h1><p>摘要：***</p><p>关键词：PyTorch，MNIST，神经网络。</p><p>一、项目背景概述/介绍</p><p>MNIST手写数字识别，是一个比较简单的入门项目，就相当于我们在学习编程语言时最开始的Hello World<br>可以让我们快速了解构建神经网络的大致过程。</p><p>这次我们选择使用PyTorch的神经网络框架。PyTorch是torch的python版本，它是由Facebook开源的神经网络框架。<br>Torch 是一个经典的对多维矩阵数据进行操作的张量(tensor)库，在机器学习和其他数学密集型应用有广泛应用。与Tensorflow的静态计算图不同，pytorch的计算图是动态的，可以根据计算需要实时改变计算图。但由于Torch语言采用 Lua，导致在国内一直很小众，并逐渐被支持 Python 的 Tensorflow 抢走用户。作为经典机器学习库 Torch 的端口，PyTorch 为 Python 语言使用者提供了舒适的写代码选择。PyTorch的设计追求最少的封装，尽量避免重复造轮子。不像 TensorFlow 中充斥着session、graph、operation、name_scope、variable、tensor、layer等全新的概念，PyTorch 的设计遵循tensor→variable(autograd)→nn.Module 三个由低到高的抽象层次，分别代表高维数组（张量）、自动求导（变量）和神经网络（层/模块），而且这三个抽象之间联系紧密，可以同时进行修改和操作。 简洁的设计带来的另外一个好处就是代码易于理解。PyTorch的源码只有TensorFlow的十分之一左右，更少的抽象、更直观的设计使得PyTorch的源码十分易于阅读。<br>总的来说，选择Pytorch，是因为它能够在短时间内建立结果，适用于小规模的项目。<br>（其实是因为老师让我们用Pytorch）</p><p>二、项目实现原理<br>安装PyTorch -&gt; 安装mnist -&gt; 通过代码下载MNIST训练集 -&gt; 通过代码定义卷积神经网络 -&gt; 通过代码使用MNIST训练集中的训练库和测试库训练出一个模型MNIST.pth -&gt; 通过模型进行识别</p><p>(1) PyTorch安装，根据自己计算机的实际情况在官网 <a href="https://pytorch.org/">https://pytorch.org</a> 安装相应的PyTorch</p><p>(2) 安装Python的mnist库 pip install mnist</p><p>(3)</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line">import torch</span><br><span class="line">import torch.nn as nn</span><br><span class="line">import torch.nn.functional as F</span><br><span class="line">import torch.optim as optim</span><br><span class="line">from torchvision import datasets, transforms</span><br><span class="line">torch.__version__</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">BATCH_SIZE&#x3D;512 #大概需要2G的显存</span><br><span class="line">EPOCHS&#x3D;20 # 总共训练批次</span><br><span class="line">DEVICE &#x3D; torch.device(&quot;cuda&quot; if torch.cuda.is_available() else &quot;cpu&quot;) # 让torch判断是否使用GPU，建议使用GPU环境，因为会快很多</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#下载训练集</span><br><span class="line">train_loader &#x3D; torch.utils.data.DataLoader(</span><br><span class="line">        datasets.MNIST(&#39;data&#39;, train&#x3D;True, download&#x3D;True, </span><br><span class="line">                       transform&#x3D;transforms.Compose([</span><br><span class="line">                           transforms.ToTensor(),</span><br><span class="line">                           transforms.Normalize((0.1307,), (0.3081,))</span><br><span class="line">                       ])),</span><br><span class="line">        batch_size&#x3D;BATCH_SIZE, shuffle&#x3D;True)</span><br><span class="line"></span><br><span class="line">#下载测试集</span><br><span class="line">test_loader &#x3D; torch.utils.data.DataLoader(</span><br><span class="line">        datasets.MNIST(&#39;data&#39;, train&#x3D;False, transform&#x3D;transforms.Compose([</span><br><span class="line">                           transforms.ToTensor(),</span><br><span class="line">                           transforms.Normalize((0.1307,), (0.3081,))</span><br><span class="line">                       ])),</span><br><span class="line">        batch_size&#x3D;BATCH_SIZE, shuffle&#x3D;True)</span><br><span class="line"></span><br><span class="line">#定义卷积神经网络</span><br><span class="line">class ConvNet(nn.Module):</span><br><span class="line">    def __init__(self):</span><br><span class="line">        super().__init__()</span><br><span class="line">        # batch*1*28*28（每次会送入batch个样本，输入通道数1（黑白图像），图像分辨率是28x28）</span><br><span class="line">        # 下面的卷积层Conv2d的第一个参数指输入通道数，第二个参数指输出通道数，第三个参数指卷积核的大小</span><br><span class="line">        self.conv1 &#x3D; nn.Conv2d(1, 10, 5) # 输入通道数1，输出通道数10，核的大小5</span><br><span class="line">        self.conv2 &#x3D; nn.Conv2d(10, 20, 3) # 输入通道数10，输出通道数20，核的大小3</span><br><span class="line">        # 下面的全连接层Linear的第一个参数指输入通道数，第二个参数指输出通道数</span><br><span class="line">        self.fc1 &#x3D; nn.Linear(20*10*10, 500) # 输入通道数是2000，输出通道数是500</span><br><span class="line">        self.fc2 &#x3D; nn.Linear(500, 10) # 输入通道数是500，输出通道数是10，即10分类</span><br><span class="line">    def forward(self,x):</span><br><span class="line">        in_size &#x3D; x.size(0) # 在本例中in_size&#x3D;512，也就是BATCH_SIZE的值。输入的x可以看成是512*1*28*28的张量。</span><br><span class="line">        out &#x3D; self.conv1(x) # batch*1*28*28 -&gt; batch*10*24*24（28x28的图像经过一次核为5x5的卷积，输出变为24x24）</span><br><span class="line">        out &#x3D; F.relu(out) # batch*10*24*24（激活函数ReLU不改变形状））</span><br><span class="line">        out &#x3D; F.max_pool2d(out, 2, 2) # batch*10*24*24 -&gt; batch*10*12*12（2*2的池化层会减半）</span><br><span class="line">        out &#x3D; self.conv2(out) # batch*10*12*12 -&gt; batch*20*10*10（再卷积一次，核的大小是3）</span><br><span class="line">        out &#x3D; F.relu(out) # batch*20*10*10</span><br><span class="line">        out &#x3D; out.view(in_size, -1) # batch*20*10*10 -&gt; batch*2000（out的第二维是-1，说明是自动推算，本例中第二维是20*10*10）</span><br><span class="line">        out &#x3D; self.fc1(out) # batch*2000 -&gt; batch*500</span><br><span class="line">        out &#x3D; F.relu(out) # batch*500</span><br><span class="line">        out &#x3D; self.fc2(out) # batch*500 -&gt; batch*10</span><br><span class="line">        out &#x3D; F.log_softmax(out, dim&#x3D;1) # 计算log(softmax(x))</span><br><span class="line">        return out</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#训练</span><br><span class="line">def train(model, device, train_loader, optimizer, epoch):</span><br><span class="line">    model.train()</span><br><span class="line">    for batch_idx, (data, target) in enumerate(train_loader):</span><br><span class="line">        data, target &#x3D; data.to(device), target.to(device)</span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line">        output &#x3D; model(data)</span><br><span class="line">        loss &#x3D; F.nll_loss(output, target)</span><br><span class="line">        loss.backward()</span><br><span class="line">        optimizer.step()</span><br><span class="line">        if(batch_idx+1)%30 &#x3D;&#x3D; 0: </span><br><span class="line">            print(&#39;Train Epoch: &#123;&#125; [&#123;&#125;&#x2F;&#123;&#125; (&#123;:.0f&#125;%)]\tLoss: &#123;:.6f&#125;&#39;.format(</span><br><span class="line">                epoch, batch_idx * len(data), len(train_loader.dataset),</span><br><span class="line">                100. * batch_idx &#x2F; len(train_loader), loss.item()))</span><br><span class="line"></span><br><span class="line">#测试</span><br><span class="line">def test(model, device, test_loader):</span><br><span class="line">    model.eval()</span><br><span class="line">    test_loss &#x3D; 0</span><br><span class="line">    correct &#x3D; 0</span><br><span class="line">    with torch.no_grad():</span><br><span class="line">        for data, target in test_loader:</span><br><span class="line">            data, target &#x3D; data.to(device), target.to(device)</span><br><span class="line">            output &#x3D; model(data)</span><br><span class="line">            test_loss +&#x3D; F.nll_loss(output, target, reduction&#x3D;&#39;sum&#39;).item() # 将一批的损失相加</span><br><span class="line">            pred &#x3D; output.max(1, keepdim&#x3D;True)[1] # 找到概率最大的下标</span><br><span class="line">            correct +&#x3D; pred.eq(target.view_as(pred)).sum().item()</span><br><span class="line"></span><br><span class="line">    test_loss &#x2F;&#x3D; len(test_loader.dataset)</span><br><span class="line">    print(&#39;\nTest set: Average loss: &#123;:.4f&#125;, Accuracy: &#123;&#125;&#x2F;&#123;&#125; (&#123;:.0f&#125;%)\n&#39;.format(</span><br><span class="line">        test_loss, correct, len(test_loader.dataset),</span><br><span class="line">        100. * correct &#x2F; len(test_loader.dataset)))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">    model &#x3D; ConvNet().to(DEVICE)</span><br><span class="line">    optimizer &#x3D; optim.Adam(model.parameters())</span><br><span class="line"></span><br><span class="line">    for epoch in range(1, EPOCHS + 1):</span><br><span class="line">        train(model, DEVICE, train_loader, optimizer, epoch)</span><br><span class="line">        test(model, DEVICE, test_loader)</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    #保存训练完成后的模型</span><br><span class="line">    torch.save(model, &#39;.&#x2F;MNIST.pth&#39;)</span><br></pre></td></tr></table></figure><p>(4)</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">import torch</span><br><span class="line">from mnist import *</span><br><span class="line">import glob</span><br><span class="line">import cv2</span><br><span class="line">import numpy as np </span><br><span class="line">import torch.nn.functional as F</span><br><span class="line">from torch.autograd import Variable</span><br><span class="line">from torchvision import datasets, transforms</span><br><span class="line">import numpy as np</span><br><span class="line">import torchvision</span><br><span class="line">from skimage import io,transform</span><br><span class="line">from train import *</span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D;&#39;__main__&#39;:</span><br><span class="line">    device &#x3D; torch.device(&#39;cuda&#39; if torch.cuda.is_available() else &#39;cpu&#39;)</span><br><span class="line">    model &#x3D; torch.load(r&#39;D:&#x2F;学习&#x2F;Python&#x2F;手写数字识别&#x2F;MNIST.pth&#39;) #加载模型</span><br><span class="line">    model &#x3D; model.to(device)</span><br><span class="line">    model.eval()    #把模型转为test模式</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    img &#x3D; cv2.imread(&#39;.&#x2F;numbers&#x2F;number1.jpg&#39;, 0)  #以灰度图的方式读取要预测的图片</span><br><span class="line">    img &#x3D; cv2.resize(img, (28, 28))</span><br><span class="line"></span><br><span class="line">    height,width&#x3D;img.shape</span><br><span class="line">    dst&#x3D;np.zeros((height,width),np.uint8)</span><br><span class="line">    for i in range(height):</span><br><span class="line">        for j in range(width):</span><br><span class="line">            dst[i,j]&#x3D;255-img[i,j]</span><br><span class="line"></span><br><span class="line">    img &#x3D; dst</span><br><span class="line"></span><br><span class="line">    img&#x3D;np.array(img).astype(np.float32)</span><br><span class="line">    img&#x3D;np.expand_dims(img,0)</span><br><span class="line">    img&#x3D;np.expand_dims(img,0)#扩展后，为[1，1，28，28]</span><br><span class="line">    img&#x3D;torch.from_numpy(img)</span><br><span class="line">    img &#x3D; img.to(device)</span><br><span class="line">    output&#x3D;model(Variable(img))</span><br><span class="line">    prob &#x3D; F.softmax(output, dim&#x3D;1)</span><br><span class="line">    prob &#x3D; Variable(prob)</span><br><span class="line">    prob &#x3D; prob.cpu().numpy()  #用GPU的数据训练的模型保存的参数都是gpu形式的，要显示则先要转回cpu，再转回numpy模式</span><br><span class="line">    print(prob)  #prob是10个分类的概率</span><br><span class="line">    pred &#x3D; np.argmax(prob) #选出概率最大的一个</span><br><span class="line">    print(&quot;识别结果为：&quot;)</span><br><span class="line">    print(pred.item())</span><br></pre></td></tr></table></figure><h1 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h1>]]></content>
+      
+      
       <categories>
-        <category>blog</category>
+          
+          <category> blog </category>
+          
       </categories>
-      <tags>
-        <tag>学习</tag>
-        <tag>日常</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>题库第一期</title>
-    <url>/2021/05/30/%E9%A2%98%E5%BA%93/%E9%A2%98%E5%BA%93%E7%AC%AC%E4%B8%80%E6%9C%9F/</url>
-    <content><![CDATA[<h1 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h1><p>放一点学习过程中，觉得有意思的题目。</p>
-<h1 id="进入题库理由"><a href="#进入题库理由" class="headerlink" title="进入题库理由"></a>进入题库理由</h1><p>在学习数据结构的过程中，接触到了栈与队列。<br>栈的特性是先入后出<br>而队列的特性是先入先出<br>明明看起来并不相干，但这二者却都能在通过一点算法的帮助下实现对方。</p>
-<h1 id="如何用栈实现队列"><a href="#如何用栈实现队列" class="headerlink" title="如何用栈实现队列"></a>如何用栈实现队列</h1><pre><code>import java.util.Stack;
-public class test
-&#123;
-    private Stack&lt;Integer&gt; a = new Stack&lt;Integer&gt;();       
-    private Stack&lt;Integer&gt; b = new Stack&lt;Integer&gt;();
-
-    public void enQueue(int element)
-    &#123;
-        a.push(element);
-        while(!a.empty())
-        &#123;
-            b.push(a.pop());
-        &#125;
-    &#125;
-    public Integer deQueue()
-    &#123;
-        if(b.empty())
-        &#123;
-            if(a.empty())
-            &#123;
-                return null;
-            &#125;
-        &#125;
-        return b.pop();
-    &#125;
-    public Integer top()
-    &#123;
-        return b.peek();
-    &#125;
-    public boolean empty()
-    &#123;
-        return b.empty();
-    &#125;
-    public static void main(String[] args)
-    &#123;
-        test t = new test();
-        t.enQueue(1);
-        t.enQueue(2);
-        t.enQueue(3);
-        t.enQueue(4);
-        t.deQueue();
-        t.deQueue();
-        System.out.println(t.top());
-        System.out.println(t.empty());
-    &#125;
-&#125;
-</code></pre>
-<h1 id="如何用队列实现栈"><a href="#如何用队列实现栈" class="headerlink" title="如何用队列实现栈"></a>如何用队列实现栈</h1><pre><code>import java.util.LinkedList;
-import java.util.Queue;
-
-public class test2 
-&#123;
-    private Queue&lt;Integer&gt; a = new LinkedList();
-    private Queue&lt;Integer&gt; b = new LinkedList();
-
-    public void push(int element)
-    &#123;
-        a.offer(element);
-        while(!b.isEmpty())
-        &#123;
-            a.offer(b.poll());
-        &#125;
-        Queue temp = a;
-        a = b;
-        b = temp;
-    &#125;
-
-    public int pop()
-    &#123;
-        return b.poll();
-    &#125;
-
-    public int top()
-    &#123;
-        return b.peek();
-    &#125;
-
-    public boolean empty()
-    &#123;
-        return b.isEmpty();
-    &#125;
-
-    public static void main(String[] args)
-    &#123;
-        test2 a = new test2();
-        a.push(1);
-        a.push(2);
-        a.pop();
-        System.out.println(a.top());
-        System.out.println(a.empty());
-    &#125;
-&#125;
-</code></pre>
-<h1 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h1><p>以上就是第一期的题库。<br>没错，我又在水博客了。</p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> 学习 </tag>
+            
+            <tag> Python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>题库第一期</title>
+      <link href="2021/05/30/%E9%A2%98%E5%BA%93/%E9%A2%98%E5%BA%93%E7%AC%AC%E4%B8%80%E6%9C%9F/"/>
+      <url>2021/05/30/%E9%A2%98%E5%BA%93/%E9%A2%98%E5%BA%93%E7%AC%AC%E4%B8%80%E6%9C%9F/</url>
+      
+        <content type="html"><![CDATA[<h1 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h1><p>放一点学习过程中，觉得有意思的题目。</p><h1 id="进入题库理由"><a href="#进入题库理由" class="headerlink" title="进入题库理由"></a>进入题库理由</h1><p>在学习数据结构的过程中，接触到了栈与队列。<br>栈的特性是先入后出<br>而队列的特性是先入先出<br>明明看起来并不相干，但这二者却都能在通过一点算法的帮助下实现对方。</p><h1 id="如何用栈实现队列"><a href="#如何用栈实现队列" class="headerlink" title="如何用栈实现队列"></a>如何用栈实现队列</h1><pre><code>import java.util.Stack;public class test&#123;    private Stack&lt;Integer&gt; a = new Stack&lt;Integer&gt;();           private Stack&lt;Integer&gt; b = new Stack&lt;Integer&gt;();    public void enQueue(int element)    &#123;        a.push(element);        while(!a.empty())        &#123;            b.push(a.pop());        &#125;    &#125;    public Integer deQueue()    &#123;        if(b.empty())        &#123;            if(a.empty())            &#123;                return null;            &#125;        &#125;        return b.pop();    &#125;    public Integer top()    &#123;        return b.peek();    &#125;    public boolean empty()    &#123;        return b.empty();    &#125;    public static void main(String[] args)    &#123;        test t = new test();        t.enQueue(1);        t.enQueue(2);        t.enQueue(3);        t.enQueue(4);        t.deQueue();        t.deQueue();        System.out.println(t.top());        System.out.println(t.empty());    &#125;&#125;</code></pre><h1 id="如何用队列实现栈"><a href="#如何用队列实现栈" class="headerlink" title="如何用队列实现栈"></a>如何用队列实现栈</h1><pre><code>import java.util.LinkedList;import java.util.Queue;public class test2 &#123;    private Queue&lt;Integer&gt; a = new LinkedList();    private Queue&lt;Integer&gt; b = new LinkedList();    public void push(int element)    &#123;        a.offer(element);        while(!b.isEmpty())        &#123;            a.offer(b.poll());        &#125;        Queue temp = a;        a = b;        b = temp;    &#125;    public int pop()    &#123;        return b.poll();    &#125;    public int top()    &#123;        return b.peek();    &#125;    public boolean empty()    &#123;        return b.isEmpty();    &#125;    public static void main(String[] args)    &#123;        test2 a = new test2();        a.push(1);        a.push(2);        a.pop();        System.out.println(a.top());        System.out.println(a.empty());    &#125;&#125;</code></pre><h1 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h1><p>以上就是第一期的题库。<br>没错，我又在水博客了。</p>]]></content>
+      
+      
       <categories>
-        <category>Questions</category>
+          
+          <category> Questions </category>
+          
       </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>题库</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>初识数据结构</title>
-    <url>/2021/05/29/blog/%E5%88%9D%E8%AF%86%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</url>
-    <content><![CDATA[<h1 id="写在开头"><a href="#写在开头" class="headerlink" title="写在开头"></a>写在开头</h1><p>之前说好要整理出一篇<br>关于如何使用 “GitHub Pages + hexo” 创建博客<br>目前没有一点进展，单纯是因为懒。<br>到六月份就得忙起来了，所以就更没有时间了<br>于是便安排在暑假里吧。<br>由于在自学的过程中，认识到了数据结构<br>我对此起了些许兴趣<br>为了让自己对数据结构有所记忆<br>所以就想先整理出这篇“初识数据结构”的博客。</p>
-<h1 id="接触数据结构"><a href="#接触数据结构" class="headerlink" title="接触数据结构"></a>接触数据结构</h1><p>在我开始学习算法的时候，教材首先就给我讲了数据结构的基础<br>这说明数据结构与算法的关联性<br>程序设计 = 数据结构 + 算法。</p>
-<p>本着对知识的好奇心，开始了对数据结构的学习，<br>我对于数据结构的理解是：它是计算机存储数据的方式。<br>数据以怎样的组织，怎样的存储格式，被计算机所管理。</p>
-<h1 id="数据结构分类"><a href="#数据结构分类" class="headerlink" title="数据结构分类"></a>数据结构分类</h1><p>数据结构分为 逻辑结构 以及 物理结构</p>
-<p>逻辑结构是指数据与数据之间的关系<br>可以分为<br>线性结构 ：顺序表，栈，队列<br>以及<br>非线性结构 ：树形结构，图形结构</p>
-<p>物理结构是指数据在计算机是以何种方式存储的<br>也就是所谓的映像<br>分为<br>顺序存储结构 ：数组<br>和<br>链序存储结构 ：链表</p>
-<h1 id="八大数据结构"><a href="#八大数据结构" class="headerlink" title="八大数据结构"></a>八大数据结构</h1><p>Array（数组）<br>Stack（栈）<br>Linked List（链表）<br>Graph（图）<br>Hash（散列表）<br>Queue（队列）<br>Tree（树）<br>Heap（堆）</p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+            <tag> 题库 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>初识数据结构</title>
+      <link href="2021/05/29/blog/%E5%88%9D%E8%AF%86%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+      <url>2021/05/29/blog/%E5%88%9D%E8%AF%86%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</url>
+      
+        <content type="html"><![CDATA[<h1 id="写在开头"><a href="#写在开头" class="headerlink" title="写在开头"></a>写在开头</h1><p>之前说好要整理出一篇<br>关于如何使用 “GitHub Pages + hexo” 创建博客<br>目前没有一点进展，单纯是因为懒。<br>到六月份就得忙起来了，所以就更没有时间了<br>于是便安排在暑假里吧。<br>由于在自学的过程中，认识到了数据结构<br>我对此起了些许兴趣<br>为了让自己对数据结构有所记忆<br>所以就想先整理出这篇“初识数据结构”的博客。</p><h1 id="接触数据结构"><a href="#接触数据结构" class="headerlink" title="接触数据结构"></a>接触数据结构</h1><p>在我开始学习算法的时候，教材首先就给我讲了数据结构的基础<br>这说明数据结构与算法的关联性<br>程序设计 = 数据结构 + 算法。</p><p>本着对知识的好奇心，开始了对数据结构的学习，<br>我对于数据结构的理解是：它是计算机存储数据的方式。<br>数据以怎样的组织，怎样的存储格式，被计算机所管理。</p><h1 id="数据结构分类"><a href="#数据结构分类" class="headerlink" title="数据结构分类"></a>数据结构分类</h1><p>数据结构分为 逻辑结构 以及 物理结构</p><p>逻辑结构是指数据与数据之间的关系<br>可以分为<br>线性结构 ：顺序表，栈，队列<br>以及<br>非线性结构 ：树形结构，图形结构</p><p>物理结构是指数据在计算机是以何种方式存储的<br>也就是所谓的映像<br>分为<br>顺序存储结构 ：数组<br>和<br>链序存储结构 ：链表</p><h1 id="八大数据结构"><a href="#八大数据结构" class="headerlink" title="八大数据结构"></a>八大数据结构</h1><p>Array（数组）<br>Stack（栈）<br>Linked List（链表）<br>Graph（图）<br>Hash（散列表）<br>Queue（队列）<br>Tree（树）<br>Heap（堆）</p>]]></content>
+      
+      
       <categories>
-        <category>blog</category>
+          
+          <category> blog </category>
+          
       </categories>
-      <tags>
-        <tag>学习</tag>
-        <tag>日常</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2021年的五一假期</title>
-    <url>/2021/05/04/blog/%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<h1 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h1><p>今年的五一假期有5天，虽然前后都要调课，但是由于课本来就不是很多，所以没所谓。<br>反正对处于学习疲倦期的我来说，可以回家的小长假真的是太感激了。</p>
-<h1 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h1><p>十年炼金无人问,一朝肉腿天下知。我就是从莱莎这代知晓并且入坑炼金工房系列的人。<br>说来惭愧，写这篇博客的时候还没有通关，因为买了pc版后才发觉这游戏适合用ns玩。<br>于是这时刚好遇上了《不可思议的炼金术士合集》DX版发售的消息，再加上曾经微博上的互关，五风老师的安利。<br>趁这次假期，我就去入手了，苏菲真可爱！（目前进度为：苏菲的炼金工房 ～不可思议书的炼金术士～ DX）<br>如果有时间的话，会写一下游戏感想。（挖个坑，以后会在博客上写一些对玩过的游戏的感想）<br><img src="https://makiori.oss-cn-beijing.aliyuncs.com/%E4%BA%94%E4%B8%80%E5%81%87%E6%9C%9F/5562DFAA95D46B7B0959CD02AFB25040.jpg?versionId=CAEQERiBgMCB9tHeyRciIDNjZGViOWE3YTkwNDRlZWNhYzYwOGYyYzE5NDczNzQy" alt="是我的新游戏哦"></p>
-<h1 id="吃的（别问为什么专门弄一个标题）"><a href="#吃的（别问为什么专门弄一个标题）" class="headerlink" title="吃的（别问为什么专门弄一个标题）"></a>吃的（别问为什么专门弄一个标题）</h1><p>在华南秋叶原买游戏时，偶然发现的店，味道不错。<br><img src="https://makiori.oss-cn-beijing.aliyuncs.com/%E4%BA%94%E4%B8%80%E5%81%87%E6%9C%9F/435819689BB3F21AEE308DE013709219.jpg?versionId=CAEQERiBgICC9tHeyRciIGI3NjMzNWNkZDkwMDQ5ODU4MGJjNjY4NDZiMDhkNDU4" alt="章鱼烧"></p>
-<p>跟好久没见的网络群友，一起去漫展玩了一天，晚餐自然就是经典的萨莉亚了。<br><img src="https://makiori.oss-cn-beijing.aliyuncs.com/%E4%BA%94%E4%B8%80%E5%81%87%E6%9C%9F/5671C8145163EC6946CFA5DC0B1A340C.jpg?versionId=CAEQERiBgICJ9tHeyRciIDQ5MGViNjRlYzMzMjQ4M2RhYWY1ZmM2ODM3Y2E4ZTY3" alt="萨"></p>
-<h1 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h1><p>好好地休息了一下，接下来得调整好自己，迎接后面的学习。</p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> 学习 </tag>
+            
+            <tag> 日常 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>2021年的五一假期</title>
+      <link href="2021/05/04/blog/%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
+      <url>2021/05/04/blog/%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
+      
+        <content type="html"><![CDATA[<h1 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h1><p>今年的五一假期有5天，虽然前后都要调课，但是由于课本来就不是很多，所以没所谓。<br>反正对处于学习疲倦期的我来说，可以回家的小长假真的是太感激了。</p><h1 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h1><p>十年炼金无人问,一朝肉腿天下知。我就是从莱莎这代知晓并且入坑炼金工房系列的人。<br>说来惭愧，写这篇博客的时候还没有通关，因为买了pc版后才发觉这游戏适合用ns玩。<br>于是这时刚好遇上了《不可思议的炼金术士合集》DX版发售的消息，再加上曾经微博上的互关，五风老师的安利。<br>趁这次假期，我就去入手了，苏菲真可爱！（目前进度为：苏菲的炼金工房 ～不可思议书的炼金术士～ DX）<br>如果有时间的话，会写一下游戏感想。（挖个坑，以后会在博客上写一些对玩过的游戏的感想）<br><img src="https://makiori.oss-cn-beijing.aliyuncs.com/%E4%BA%94%E4%B8%80%E5%81%87%E6%9C%9F/5562DFAA95D46B7B0959CD02AFB25040.jpg?versionId=CAEQERiBgMCB9tHeyRciIDNjZGViOWE3YTkwNDRlZWNhYzYwOGYyYzE5NDczNzQy" alt="是我的新游戏哦"></p><h1 id="吃的（别问为什么专门弄一个标题）"><a href="#吃的（别问为什么专门弄一个标题）" class="headerlink" title="吃的（别问为什么专门弄一个标题）"></a>吃的（别问为什么专门弄一个标题）</h1><p>在华南秋叶原买游戏时，偶然发现的店，味道不错。<br><img src="https://makiori.oss-cn-beijing.aliyuncs.com/%E4%BA%94%E4%B8%80%E5%81%87%E6%9C%9F/435819689BB3F21AEE308DE013709219.jpg?versionId=CAEQERiBgICC9tHeyRciIGI3NjMzNWNkZDkwMDQ5ODU4MGJjNjY4NDZiMDhkNDU4" alt="章鱼烧"></p><p>跟好久没见的网络群友，一起去漫展玩了一天，晚餐自然就是经典的萨莉亚了。<br><img src="https://makiori.oss-cn-beijing.aliyuncs.com/%E4%BA%94%E4%B8%80%E5%81%87%E6%9C%9F/5671C8145163EC6946CFA5DC0B1A340C.jpg?versionId=CAEQERiBgICJ9tHeyRciIDQ5MGViNjRlYzMzMjQ4M2RhYWY1ZmM2ODM3Y2E4ZTY3" alt="萨"></p><h1 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h1><p>好好地休息了一下，接下来得调整好自己，迎接后面的学习。</p>]]></content>
+      
+      
       <categories>
-        <category>blog</category>
+          
+          <category> blog </category>
+          
       </categories>
-      <tags>
-        <tag>日常</tag>
-      </tags>
-  </entry>
+      
+      
+        <tags>
+            
+            <tag> 日常 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>第一篇博客</title>
+      <link href="2021/04/20/blog/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
+      <url>2021/04/20/blog/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
+      
+        <content type="html"><![CDATA[<h1 id="关于博客"><a href="#关于博客" class="headerlink" title="关于博客"></a>关于博客</h1><p>上一年建的博客，因为个人原因删除了。<br>主要就是当时选的主题过于复杂，后面不想整理。<br>再加上放了太多可能涉及版权问题的四格漫画。<br>（虽然说本来就经常做灰色地带的勾当）<br>一二月放寒假的时候，每天躺在床上什么都不想做，所以就拖到了开学。<br>但有动力做事的情况下，还是出了一系列的意外，就不多说了。<br>于是摸鱼摸了几个月之后，终于在19岁生日的时候，重新建好了自己的小地盘。<br>后面会专门写一篇关于如何用 Hexo+GitPages 建立个人博客的文章。<br>算是给自己留个记录，也希望能在以后帮到想建个人博客的朋友。</p><h1 id="关于现状"><a href="#关于现状" class="headerlink" title="关于现状"></a>关于现状</h1><p>这摸过去的几个月里，发生了很多事情，比如说我的人际关系就发生了翻天覆地的变化。<br>嘛，有相遇就会有分别，一段关系的结束或许会是另一段关系的开始呢？<br>而且我也深刻地认识到了自己在人际交往中的种种问题，<br>于是我注销掉了自己的微博账号，还退掉了许多已经没有交流的QQ群。<br>在圈子里面彻底消失，而且已经没有回归的机会了。<br>希望自己能在下一个圈子里有更为理想的形态。<br>我一直在盼望自己的人生会发生不同寻常的事情，<br>但当它已经在发生变化的时候，我却没有意识到。</p><h1 id="关于未来"><a href="#关于未来" class="headerlink" title="关于未来"></a>关于未来</h1><p>以后会在这里分享一下自己的学习情况，以及生活上各种各样的小事情。<br>还会稍微放一些翻译工作，如果还能有这样的工作机会的话，<br>又或者是还能遇到让自己兴奋的事物的话。<br>最后还有自己的脑洞，属于我的牧尾宇宙。<br>会慢慢地更新，能写多少就不知道了。<br>先放一个题目：《角落里的魔女》<br>嗯，然后还有很多想尝试的事情，比如说：制作游戏啊，到处旅行然后用视频记录下来之类的。<br>嘛，只有一次的人生，应该好好地享受。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> blog </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 学习 </tag>
+            
+            <tag> 日常 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
 </search>
