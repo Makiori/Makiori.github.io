@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-07-21T14:29:42.948Z</updated>
+  <updated>2021-07-21T14:31:55.642Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>第一篇</title>
-    <link href="http://example.com/2021/07/21/novel/%E7%89%A7%E5%B0%BE%E5%90%8C%E5%AD%A6%E8%AE%B0%E4%BA%8B%E7%B0%BF/%E7%AC%AC%E4%B8%80%E7%AF%87/"/>
-    <id>http://example.com/2021/07/21/novel/%E7%89%A7%E5%B0%BE%E5%90%8C%E5%AD%A6%E8%AE%B0%E4%BA%8B%E7%B0%BF/%E7%AC%AC%E4%B8%80%E7%AF%87/</id>
+    <title>牧尾同学记事簿（1）</title>
+    <link href="http://example.com/2021/07/21/novel/%E7%89%A7%E5%B0%BE%E5%90%8C%E5%AD%A6%E8%AE%B0%E4%BA%8B%E7%B0%BF/%E7%89%A7%E5%B0%BE%E5%90%8C%E5%AD%A6%E8%AE%B0%E4%BA%8B%E7%B0%BF%EF%BC%881%EF%BC%89/"/>
+    <id>http://example.com/2021/07/21/novel/%E7%89%A7%E5%B0%BE%E5%90%8C%E5%AD%A6%E8%AE%B0%E4%BA%8B%E7%B0%BF/%E7%89%A7%E5%B0%BE%E5%90%8C%E5%AD%A6%E8%AE%B0%E4%BA%8B%E7%B0%BF%EF%BC%881%EF%BC%89/</id>
     <published>2021-07-21T13:31:58.000Z</published>
-    <updated>2021-07-21T14:29:42.948Z</updated>
+    <updated>2021-07-21T14:31:55.642Z</updated>
     
     <content type="html"><![CDATA[<p>暑假的某一天。</p><p>我保持着一直以来的放假习惯。</p><p>盘着双腿坐在椅子上，拿着游戏手柄，目光紧盯着电脑屏幕。</p><p>上边是调了十八度的空调呼呼吹出的冷风。</p><p>下边则是电脑机箱在不断地让我感受它温热的气息。</p><p>音响开着的声音并不大，所以我接下来才能够清楚地听到了她的话。</p><p>“我想创造一个属于自己的宇宙。”</p><p>来自一旁，仰面躺在我床上的女孩，她正望着天花板。</p><p>“哈？”我发出了疑问的语气。</p><p>握着游戏手柄的手稍微停了下来，目光也望向了她。</p><p>“呀，你看啊，把可爱的女孩子们，放在同一个宇宙里。”</p><p>“嗯……嗯……”</p><p>“让她们各自有各自的故事，又能够出现交集。”</p><p>“嗯……嗯……”</p><p>“这不是很棒的事情吗？”</p><p>说着，她突然坐了起来，看向我的眼睛闪闪发光。</p><p>“所以，你想怎么做？” 我把脸向着电脑屏幕转了回去。</p><p>老实说不太懂，但我大受震撼。</p><p>“怎么做……我不是说了吗？要创造一个属于自己的宇宙！”</p><p>“……我就是在问你要怎么创造啊……”</p><p>“呼<del>呼</del>呼~”</p><p>这笑声让我出了几分冷汗。</p><p>“那当然是在梦中啦，晚安！”</p><p>然后她就又躺了下去，还盖上了我的被子。</p><p>我没想再吐槽些什么，继续着手中的游戏。</p><p>“好冷。” 她打了一个喷嚏。</p><p>“是谁把空调开那么低的。” 我接过话茬。</p><p>“是谁啊？” 她抱怨的声音。</p><p>“是你啊。” 我冷静的声音。</p>]]></content>
     
@@ -42,26 +42,6 @@
     
     
     <category term="小说" scheme="http://example.com/tags/%E5%B0%8F%E8%AF%B4/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用Hexo + GitPage 搭建个人博客</title>
-    <link href="http://example.com/2021/07/18/blog/%E4%BD%BF%E7%94%A8Hexo%20+%20GitPage%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
-    <id>http://example.com/2021/07/18/blog/%E4%BD%BF%E7%94%A8Hexo%20+%20GitPage%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</id>
-    <published>2021-07-18T07:04:24.000Z</published>
-    <updated>2021-07-21T14:24:50.999Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="写在开头"><a href="#写在开头" class="headerlink" title="写在开头"></a>写在开头</h1><p>当我入学时，我就想着如何做出一点属于自己的东西<br>加上当时的自己想要远离一些社交平台<br>没有了地方放自己的自言自语，多多少少还是有点不习惯的<br>于是，建立一个博客就是我最好的选择。<br>当然，我并没有那么高的技术力可以从零开始搭建一个博客，<br>在朋友的介绍和自己的选择中，巧用了一些工具搭建了现在这个博客。</p><h1 id="阐述"><a href="#阐述" class="headerlink" title="阐述"></a>阐述</h1><p>我选择了使用github的网站托管Gitpages<br>再加上hexo来搭建个人博客</p><h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;写在开头&quot;&gt;&lt;a href=&quot;#写在开头&quot; class=&quot;headerlink&quot; title=&quot;写在开头&quot;&gt;&lt;/a&gt;写在开头&lt;/h1&gt;&lt;p&gt;当我入学时，我就想着如何做出一点属于自己的东西&lt;br&gt;加上当时的自己想要远离一些社交平台&lt;br&gt;没有了地方放自己的自言自语，</summary>
-      
-    
-    
-    
     
   </entry>
   

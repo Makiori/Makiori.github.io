@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://example.com/2021/07/21/novel/%E7%89%A7%E5%B0%BE%E5%90%8C%E5%AD%A6%E8%AE%B0%E4%BA%8B%E7%B0%BF/%E7%AC%AC%E4%B8%80%E7%AF%87/</loc>
+    <loc>http://example.com/universe/index.html</loc>
     
     <lastmod>2021-07-21</lastmod>
     
   </url>
   
   <url>
-    <loc>http://example.com/2021/07/18/blog/%E4%BD%BF%E7%94%A8Hexo%20+%20GitPage%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</loc>
+    <loc>http://example.com/2021/07/21/novel/%E7%89%A7%E5%B0%BE%E5%90%8C%E5%AD%A6%E8%AE%B0%E4%BA%8B%E7%B0%BF/%E7%89%A7%E5%B0%BE%E5%90%8C%E5%AD%A6%E8%AE%B0%E4%BA%8B%E7%B0%BF%EF%BC%881%EF%BC%89/</loc>
     
     <lastmod>2021-07-21</lastmod>
     
@@ -54,13 +54,6 @@
     <loc>http://example.com/2021/04/20/blog/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</loc>
     
     <lastmod>2021-05-06</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://example.com/universe/index.html</loc>
-    
-    <lastmod>2021-05-04</lastmod>
     
   </url>
   
