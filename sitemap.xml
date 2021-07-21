@@ -2,16 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://example.com/about/index.html</loc>
+    <loc>http://example.com/2021/07/21/novel/%E7%89%A7%E5%B0%BE%E5%90%8C%E5%AD%A6%E8%AE%B0%E4%BA%8B%E7%B0%BF/%E7%AC%AC%E4%B8%80%E7%AF%87/</loc>
     
-    <lastmod>2021-07-04</lastmod>
+    <lastmod>2021-07-21</lastmod>
     
   </url>
   
   <url>
-    <loc>http://example.com/2021/06/27/blog/%E7%AC%AC%E4%B8%89%E7%AF%87%E5%8D%9A%E5%AE%A2/</loc>
+    <loc>http://example.com/2021/07/18/blog/%E4%BD%BF%E7%94%A8Hexo%20+%20GitPage%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</loc>
     
-    <lastmod>2021-06-27</lastmod>
+    <lastmod>2021-07-21</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://example.com/2021/05/04/blog/2021%E5%B9%B4%E7%9A%84%E4%BA%94%E4%B8%80%E5%81%87%E6%9C%9F/</loc>
+    
+    <lastmod>2021-07-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://example.com/2021/06/27/blog/%E4%BD%BF%E7%94%A8Pytorch%E5%AE%9E%E7%8E%B0mnist%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB/</loc>
+    
+    <lastmod>2021-07-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://example.com/about/index.html</loc>
+    
+    <lastmod>2021-07-04</lastmod>
     
   </url>
   
@@ -26,13 +47,6 @@
     <loc>http://example.com/2021/05/29/blog/%E5%88%9D%E8%AF%86%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
     
     <lastmod>2021-05-29</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://example.com/2021/05/04/blog/%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2/</loc>
-    
-    <lastmod>2021-05-06</lastmod>
     
   </url>
   
@@ -74,64 +88,71 @@
 
   <url>
     <loc>http://example.com/</loc>
-    <lastmod>2021-07-04</lastmod>
+    <lastmod>2021-07-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>http://example.com/tags/%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2021-07-04</lastmod>
+    <loc>http://example.com/tags/%E6%97%A5%E5%B8%B8/</loc>
+    <lastmod>2021-07-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://example.com/tags/%E6%97%A5%E5%B8%B8/</loc>
-    <lastmod>2021-07-04</lastmod>
+    <loc>http://example.com/tags/%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2021-07-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/Python/</loc>
-    <lastmod>2021-07-04</lastmod>
+    <lastmod>2021-07-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/Pytorch/</loc>
-    <lastmod>2021-07-04</lastmod>
+    <lastmod>2021-07-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/mnist/</loc>
-    <lastmod>2021-07-04</lastmod>
+    <lastmod>2021-07-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</loc>
-    <lastmod>2021-07-04</lastmod>
+    <lastmod>2021-07-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/java/</loc>
-    <lastmod>2021-07-04</lastmod>
+    <lastmod>2021-07-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/%E9%A2%98%E5%BA%93/</loc>
-    <lastmod>2021-07-04</lastmod>
+    <lastmod>2021-07-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/%E5%B0%8F%E8%AF%B4/</loc>
+    <lastmod>2021-07-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -140,14 +161,21 @@
   
   <url>
     <loc>http://example.com/categories/blog/</loc>
-    <lastmod>2021-07-04</lastmod>
+    <lastmod>2021-07-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://example.com/categories/Questions/</loc>
-    <lastmod>2021-07-04</lastmod>
+    <lastmod>2021-07-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/categories/novel/</loc>
+    <lastmod>2021-07-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
