@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-09-12T02:17:11.752Z</updated>
+  <updated>2021-09-12T14:06:03.650Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>角落里的魔女（人设1）</title>
+    <link href="http://example.com/2021/09/12/novel/%E8%A7%92%E8%90%BD%E9%87%8C%E7%9A%84%E9%AD%94%E5%A5%B3/%E8%A7%92%E8%90%BD%E9%87%8C%E7%9A%84%E9%AD%94%E5%A5%B3%EF%BC%88%E4%BA%BA%E8%AE%BE1%EF%BC%89/"/>
+    <id>http://example.com/2021/09/12/novel/%E8%A7%92%E8%90%BD%E9%87%8C%E7%9A%84%E9%AD%94%E5%A5%B3/%E8%A7%92%E8%90%BD%E9%87%8C%E7%9A%84%E9%AD%94%E5%A5%B3%EF%BC%88%E4%BA%BA%E8%AE%BE1%EF%BC%89/</id>
+    <published>2021-09-12T13:00:00.000Z</published>
+    <updated>2021-09-12T14:06:03.650Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="风织诗"><a href="#风织诗" class="headerlink" title="风织诗"></a>风织诗</h1><h1 id="初云"><a href="#初云" class="headerlink" title="初云"></a>初云</h1><h1 id="雨"><a href="#雨" class="headerlink" title="雨"></a>雨</h1>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;风织诗&quot;&gt;&lt;a href=&quot;#风织诗&quot; class=&quot;headerlink&quot; title=&quot;风织诗&quot;&gt;&lt;/a&gt;风织诗&lt;/h1&gt;&lt;h1 id=&quot;初云&quot;&gt;&lt;a href=&quot;#初云&quot; class=&quot;headerlink&quot; title=&quot;初云&quot;&gt;&lt;/a&gt;初云&lt;/h1&gt;&lt;h</summary>
+      
+    
+    
+    
+    <category term="novel" scheme="http://example.com/categories/novel/"/>
+    
+    
+    <category term="小说" scheme="http://example.com/tags/%E5%B0%8F%E8%AF%B4/"/>
+    
+  </entry>
   
   <entry>
     <title>角落里的魔女（1）</title>
