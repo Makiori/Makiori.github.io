@@ -1,0 +1,116 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="Java虚拟机运行时数据区域"><meta name="keywords" content="note,Java,JVM"><meta name="author" content="牧尾伊織"><meta name="copyright" content="牧尾伊織"><title>Java虚拟机运行时数据区域 | Makiori's blog</title><link rel="shortcut icon" href="https://makiori.oss-cn-beijing.aliyuncs.com/博客主题/网页头像/安岛.jpg?versionId=CAEQExiBgMDEvNTD0xciIDEwOWZhNzRhMDVlODRmZjA5MjY1NGEzMzgxY2RhMTE5"><link rel="stylesheet" href="/css/index.css?version=1.9.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  hexoVersion: '5.4.0'
+} </script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Makiori's blog" type="application/atom+xml">
+</head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F"><span class="toc-number">1.</span> <span class="toc-text">运行时数据区域</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8-%EF%BC%88Program-Counter-Register%EF%BC%89"><span class="toc-number">1.1.</span> <span class="toc-text">程序计数器 （Program Counter Register）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%A0%88%EF%BC%88Java-Virtual-Machine-Stack%EF%BC%89"><span class="toc-number">1.2.</span> <span class="toc-text">Java虚拟机栈（Java Virtual Machine Stack）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E6%96%B9%E6%B3%95%E6%A0%88%EF%BC%88Native-Method-Stacks%EF%BC%89"><span class="toc-number">1.3.</span> <span class="toc-text">本地方法栈（Native Method Stacks）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java%E5%A0%86%EF%BC%88Java-Heap%EF%BC%89"><span class="toc-number">1.4.</span> <span class="toc-text">Java堆（Java Heap）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E5%8C%BA%EF%BC%88Method-Area%EF%BC%89"><span class="toc-number">1.5.</span> <span class="toc-text">方法区（Method Area）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B0%B8%E4%B9%85%E4%BB%A3%EF%BC%88Permanent-Generation%EF%BC%89"><span class="toc-number">1.5.1.</span> <span class="toc-text">永久代（Permanent Generation）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%B0%86%E6%B0%B8%E4%B9%85%E4%BB%A3%E6%9B%BF%E6%8D%A2%E4%B8%BA%E5%85%83%E7%A9%BA%E9%97%B4%EF%BC%88MetaSpace%EF%BC%89%E5%91%A2%EF%BC%9F"><span class="toc-number">1.5.2.</span> <span class="toc-text">为什么要将永久代替换为元空间（MetaSpace）呢？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E5%B8%B8%E9%87%8F%E6%B1%A0-%EF%BC%88Runtime-Constant-Pool%EF%BC%89"><span class="toc-number">1.5.3.</span> <span class="toc-text">运行时常量池 （Runtime Constant Pool）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98-Direct-Memory"><span class="toc-number">1.6.</span> <span class="toc-text">直接内存 (Direct Memory)</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="https://makiori.oss-cn-beijing.aliyuncs.com/牧尾伊織/Makiori短发.png?versionId=CAEQFhiBgMCM2cHM2hciIGEyYzAzYjdhNjZjYzRhYzhiNzE5OTMxYjhlZjI4MmE5"></div><div class="author-info__name text-center">牧尾伊織</div><div class="author-info__description text-center">微风轻拂，编织出命运的诗章。</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">11</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">13</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">4</span></a></div><hr><div class="author-info-links"><div class="author-info-links__title text-center">友情链接</div><a class="author-info-links__name text-center" href="/friends">友链合集</a><a class="author-info-links__name text-center" target="_blank" rel="noopener" href="https://blog.refrigetwo.moe">refrigetwo</a><a class="author-info-links__name text-center" target="_blank" rel="noopener" href="https://jaycearsumi.github.io">jayce</a><a class="author-info-links__name text-center" target="_blank" rel="noopener" href="https://ygtakagaki.github.io">Takagaki</a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://makiori.oss-cn-beijing.aliyuncs.com/博客主题/背景页/壁纸（1）.png?versionId=CAEQFxiBgMDHsf6M4BciIGJiN2U3ODhhYmRlNjQyMGFiMTQxNGIxYjhmNzZjNzAz)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">Makiori's blog</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">首页</a><a class="site-page" href="/about">关于</a><a class="site-page" href="/archives">文章</a><a class="site-page" href="/note">笔记</a><a class="site-page" href="/categories">分类</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/friends">友链</a><a class="site-page" href="/universe">宇宙</a></span><span class="pull-right"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> 搜索</span></a></span></div><div id="post-info"><div id="post-title">Java虚拟机运行时数据区域</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-10-07</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/note/">note</a><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">2.5k</span><span class="post-meta__separator">|</span><span>阅读时长: 7 分钟</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><p>关于java虚拟机运行时数据区域</p>
+<h1 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h1><p>线程私有：</p>
+<ol>
+<li>程序计数器</li>
+<li>虚拟机栈</li>
+<li>本地方法栈</li>
+</ol>
+<p>线程共享：</p>
+<ol>
+<li>堆</li>
+<li>方法区</li>
+<li>直接内存</li>
+</ol>
+<br>
+
+<h2 id="程序计数器-（Program-Counter-Register）"><a href="#程序计数器-（Program-Counter-Register）" class="headerlink" title="程序计数器 （Program Counter Register）"></a>程序计数器 （Program Counter Register）</h2><p><mark>程序计数器是一块较小的内存空间，可以看作是当前线程所执行的字节码的行号指示器。</mark><br>字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令。<br>它是程序控制流的指示器，分支、循环、跳转、异常处理、线程恢复等基础功能都需要依赖这个计数器来完成。</p>
+<p>为了线程切换后能恢复到正常的执行位置，每条线程都需要一个独立的程序计数器，各线程之间计数器互不影响，独立存储。这类内存区域被称为“线程私有”的内存。</p>
+<p>程序计算器这一内存区域是唯一不会出现<code>OutOfMemoryError</code>的内存区域，它的生命周期随着线程的创建而创建，随着线程的结束而死亡。</p>
+<p>程序计数器主要有两个作用：</p>
+<ol>
+<li>字节码解释器通过改变程序计数器来依次读取指令，从而实现代码的流程控制，如：顺序执行、选择、循环、异常处理。</li>
+<li>在多线程的情况下，程序计数器用于记录当前线程执行的位置，从而当线程被切换回来的时候能够知道该线程上次运行的位置。</li>
+</ol>
+<br>
+
+<h2 id="Java虚拟机栈（Java-Virtual-Machine-Stack）"><a href="#Java虚拟机栈（Java-Virtual-Machine-Stack）" class="headerlink" title="Java虚拟机栈（Java Virtual Machine Stack）"></a>Java虚拟机栈（Java Virtual Machine Stack）</h2><p>与程序计数器一样，Java虚拟机栈也是线程私有的，它的生命周期与线程相同，随着线程的创建而创建，随着线程的死亡而死亡。它描述Java方法执行的线程内存模型，每个方法被执行时，Java虚拟机都会同步创建一个栈帧（Stack Frame）用于存储局部变量表，操作数栈、动态连接、方法出口等信息。</p>
+<p>Java内存区域可以笼统地划分为堆内存（Heap）和栈内存（Stack），其中栈就是现在说的虚拟机栈或者更多情况下指的只是虚拟机栈中局部变量表部分。</p>
+<p>局部变量表主要存放了：</p>
+<ol>
+<li>编译期可知的各种Java虚拟机基本类型（boolean、byte、char、short、int、float、long、double）</li>
+<li>对象引用（reference类型，它并不等同于对象本身，可能时一个指向对象起始地址的引用指针，也可能是指向一个代表对象的句柄或者其他与此对象相关的位置）</li>
+<li>returnAddress类型（指向了一条字节码指令的地址）</li>
+</ol>
+<br>
+
+<p>Java虚拟机栈会出现两种错误</p>
+<ol>
+<li><code>StackOverFlowError</code>：若Java虚拟机栈的内存大小不允许动态扩展，那么当线程请求栈的深度超过当前Java虚拟机栈的最大深度的时候，就抛出<code>StackOverFlowError</code>错误。</li>
+<li><code>OutOfMemoryError</code>：若Java虚拟机栈的内存大小可以动态扩展，如果虚拟机在动态扩展栈时无法申请到足够的内存空间，则抛出<code>OutOfMemoryError</code>异常。</li>
+</ol>
+<br>
+
+<h2 id="本地方法栈（Native-Method-Stacks）"><a href="#本地方法栈（Native-Method-Stacks）" class="headerlink" title="本地方法栈（Native Method Stacks）"></a>本地方法栈（Native Method Stacks）</h2><p>和虚拟机所发挥的作用非常相似，区别是：虚拟机栈执行Java方法（字节码）服务，而本地方法栈则为虚拟机使用到的Native方法服务。</p>
+<p>本地方法被执行的时候，在本地方法栈也会创建一个栈帧，用于存放该本地方法的局部变量表、操作数栈、动态链接、出口信息。</p>
+<p>与虚拟机栈一样，本地方法栈也会在栈深度溢出或者栈扩展失败时分别抛出<code>StackOverFlowError</code>和<code>OutOfMemoryError</code>异常。</p>
+<br>
+
+<h2 id="Java堆（Java-Heap）"><a href="#Java堆（Java-Heap）" class="headerlink" title="Java堆（Java Heap）"></a>Java堆（Java Heap）</h2><p>Java堆是Java虚拟机所管理的内存中最大的一块，Java堆是被所有线程共享的一块内存区域，在虚拟机启动时创建。此内存区域的唯一目的就是存放对象实例，几乎所有的对象实例以及数组都在这里分配内存。</p>
+<p>在《Java虚拟机规范》中对Java堆的描述是：“所有的对象实例以及数组都应当在堆上分配。”  但随着Java语言的发展，<br>即时编译器的进步，尤其时逃逸分析技术的日渐强大，栈上分配、标量替换优化手段已经导致一些微妙的变化悄然发生，<br>使得Java对象实例都分配在堆上也渐渐变得不是那么绝对了。</p>
+<p>Java堆是垃圾收集器管理的主要区域，因此也被称作GC推（Garbage Collec Heap）, 戏称“垃圾堆”。从垃圾回收的角度，由于现在收集器基本都采用分代垃圾收集算法，所以Java堆还可以细分为：新生代和老年代；再细致一点有：Eden空间、From Survivor、To Survivor空间等。进一步划分的目的是为了更好地回收内存，或者更快地分配内存。</p>
+<p>Java堆既可以被实现成固定大小的，也可以是可扩展的，不过当前主流的Java虚拟机都是按照可扩展来实现的（通过参数-Xmx和-Xms设定）。如果在Java堆中没有内存完成实例分配，并且堆也无法扩展时，Java虚拟机将会抛出<code>OufOfMemoryError</code>异常。</p>
+<br>
+
+<h2 id="方法区（Method-Area）"><a href="#方法区（Method-Area）" class="headerlink" title="方法区（Method Area）"></a>方法区（Method Area）</h2><p>方法区与Java堆一样，是各个线程共享的内存区域，它用于存储已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码缓存等数据。虽然《Java虚拟机规范》中把方法区描述为堆的一个逻辑部分，但是它却有一个别名叫作“非堆”（Non-Heap），目的是与Java堆区分开来。</p>
+<p>根据《Java虚拟机规范》的规定，如果方法区无法满足新的内存分配需求时，将抛出<code>OutOfMemoryError</code>异常。</p>
+<br>
+
+<h3 id="永久代（Permanent-Generation）"><a href="#永久代（Permanent-Generation）" class="headerlink" title="永久代（Permanent Generation）"></a>永久代（Permanent Generation）</h3><p>说到方法区，不得不提一下“永久代”这个概念。<br>在JDK8以前，许多Java程序员习惯在HotSpot虚拟机上开发、部署程序，很多人更愿意把方法区称呼为<mark>永久代</mark>，<br>或者将两者混为一谈。其实本质上这两者并不是等价的。</p>
+<p>《Java虚拟机规范》只是规定了有方法区这个概念和它的作用，并没有规定如何区实现它。所以，在不同的JVM上方法区的实现肯定不同的。方法区和永久代的关系就像Java中接口和类的关系，类实现了接口，而永久代就是HotSpot虚拟机对虚拟机规范中方法区的一种实现方式。也就是说，永久代是HotSpot的概念，方法区是Java虚拟机规范中的定义，是一种规范，而永久代是一种实现，一个是标准一个是实现，其他的虚拟机实现并没有永久代这一说法。</p>
+<br>
+
+<h3 id="为什么要将永久代替换为元空间（MetaSpace）呢？"><a href="#为什么要将永久代替换为元空间（MetaSpace）呢？" class="headerlink" title="为什么要将永久代替换为元空间（MetaSpace）呢？"></a>为什么要将永久代替换为元空间（MetaSpace）呢？</h3><p>在JDK1.8的时候，方法区（HotSpot的永久代）被彻底移除了（JDK1.7就已经开始了），取而代之的是元空间，元空间使用的直接内存。</p>
+<ol>
+<li><p>整个永久代有一个JVM本身设置的固定大小上限，无法进行调整，而元空间使用的是直接内存，受本机可用内存的限制，虽然元空间仍可能溢出，但比原来出现的几率会更小。<br>元空间溢出时错误：<code>java.lang.OutOfMemoryError: MetaSpace</code><br>可以使用<code>-XX：MaxMetaspaceSize</code>标志设置最大元空间大小，默认值为unlimited，这意味着它只受系统内存的限制。<br><code>-XX：MaxMetaspaceSize</code> 调整标志定义元空间的初始大小如果未指定此标志，则Metaspace将根据运行时的应用程序需求动态地重新调整大小。</p>
+</li>
+<li><p>元空间里面存放的是类的元数据，这样加载多少类的元数据就不由<code>MaxPermSize</code>控制了，而由系统的实际可用空间来控制，这样能加载的类就更多了。</p>
+</li>
+<li><p>在JDK8中，合并HotSpot 和 JRockit的代码时，JRockit从来没有一个叫永久代的东西，合并之后就没有必要额外地设置一个永久代的地方了。</p>
+</li>
+</ol>
+<br>
+
+<h3 id="运行时常量池-（Runtime-Constant-Pool）"><a href="#运行时常量池-（Runtime-Constant-Pool）" class="headerlink" title="运行时常量池 （Runtime Constant Pool）"></a>运行时常量池 （Runtime Constant Pool）</h3><p>运行时常量池是方法区的一部分。Class文件中除了有类的版本、字段、方法、接口等描述信息外，还有一项信息是常量池表（Constant Pool Table），它用于存放编译期生成的各种字面量与符号引用。</p>
+<p>既然运行时常量池是方法区的一部分，自然受到方法区内存的限制，当常量池无法再申请到内存时会抛出<code>OutOfMemoryError</code>异常。</p>
+<br>
+
+<h2 id="直接内存-Direct-Memory"><a href="#直接内存-Direct-Memory" class="headerlink" title="直接内存 (Direct Memory)"></a>直接内存 (Direct Memory)</h2><p>直接内存并不是虚拟机运行时数据区的一部分，也不是《Java虚拟机规范》中定义的内存区域。但是这部分内存也被频繁地使用，而且可能导致OutOfMemoryError异常出现。</p>
+<p>JDK1.4中新加入了NIO（New Input/Output）类，引入了一种基于通道（Channel）与缓冲区（Buffer）的I/O方式，它可以使用Native函数库直接分配堆外内存，然后通过一个存储再Java堆中的DirectByteBuffer对象作为这块内存的引用进行操作。这样能在一些场景中显著提高性能，因为避免了在Java堆和Native堆中来回复制数据。</p>
+<p>本机直接内存的分配不会受到Java堆的限制，但是既然是内存就会受到本机总内存大小以及处理器寻址空间的限制。</p>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">牧尾伊織</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2021/10/07/note/Java虚拟机运行时数据区域/">http://example.com/2021/10/07/note/Java虚拟机运行时数据区域/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com">Makiori's blog</a>！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/note/">note</a><a class="post-meta__tags" href="/tags/Java/">Java</a><a class="post-meta__tags" href="/tags/JVM/">JVM</a></div><div class="addthis_inline_share_toolbox pull-right"></div><script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-608641b4275da46b" async></script><nav id="pagination"><div class="next-post pull-right"><a href="/2021/10/07/note/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89/"><span>计算机网络笔记（1）</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="vcomment"></div><script src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js"></script><script>var notify = 'false' == 'true';
+var verify = 'false' == 'true';
+var record_ip = 'false' == 'true';
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  recordIP:record_ip,
+  appId:'OcFbEdLD6oAoipTMrMU0gJdj-gzGzoHsz',
+  appKey:'iyTY7QTVRQen3f7TRBID3C3i',
+  placeholder:'请输入评论,最好留一下昵称(',
+  avatar:'mm',
+  guest_info:guest_info,
+  pageSize:'5',
+  lang: 'zh-cn'
+})</script></div></div><footer class="footer-bg" style="background-image: url(https://makiori.oss-cn-beijing.aliyuncs.com/博客主题/背景页/壁纸（1）.png?versionId=CAEQFxiBgMDHsf6M4BciIGJiN2U3ODhhYmRlNjQyMGFiMTQxNGIxYjhmNzZjNzAz)"><div class="layout" id="footer"><div class="copyright">&copy;2021 By 牧尾伊織</div><div class="framework-info"><span>驱动 - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="footer_custom_text">走り始めたばかりのキミに</div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.0"></script><script src="/js/fancybox.js?version=1.9.0"></script><script src="/js/sidebar.js?version=1.9.0"></script><script src="/js/copy.js?version=1.9.0"></script><script src="/js/fireworks.js?version=1.9.0"></script><script src="/js/transition.js?version=1.9.0"></script><script src="/js/scroll.js?version=1.9.0"></script><script src="/js/head.js?version=1.9.0"></script><script src="/js/search/local-search.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>
