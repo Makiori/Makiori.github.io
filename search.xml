@@ -16,6 +16,174 @@
       </tags>
   </entry>
   <entry>
+    <title>Spring Boot相关笔记</title>
+    <url>/2021/12/06/note/SpringBoot%E7%9B%B8%E5%85%B3/</url>
+    <content><![CDATA[<h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><ul>
+<li><a href="https://snailclimb.gitee.io/springboot-guide/#/">https://snailclimb.gitee.io/springboot-guide/#/</a></li>
+<li><a href="http://www.imooc.com/wiki/springbootlesson">http://www.imooc.com/wiki/springbootlesson</a></li>
+</ul>
+<h1 id="关于Spring-Boot"><a href="#关于Spring-Boot" class="headerlink" title="关于Spring Boot"></a>关于Spring Boot</h1><p><br></br></p>
+<h2 id="Spring-Boot-官方介绍"><a href="#Spring-Boot-官方介绍" class="headerlink" title="Spring Boot 官方介绍"></a>Spring Boot 官方介绍</h2><p>原文：Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can “just run”…Most Spring Boot applications need very little Spring configuration.</p>
+<p>翻译：<code>Spring Boot</code> 可以轻松创建独立的生产级基于 <code>Spring</code> 的应用程序,只要通过 “just run”（可能是 run ‘Application’或 java -jar 或 tomcat 或 maven 插件 run 或 shell 脚本）便可以运行项目…大部分 Spring Boot 项目只需要少量的配置即可</p>
+<!-- read more -->
+
+<p>所以其实<code>Spring Boot</code>就是<code>Spring</code>, 它做了那些没有它你自己也会去做的<code>Spring Bean</code>配置</p>
+<p><br></br></p>
+<h2 id="Spring-Boot-的主要优点"><a href="#Spring-Boot-的主要优点" class="headerlink" title="Spring Boot 的主要优点"></a>Spring Boot 的主要优点</h2><ol>
+<li>开发基于 Spring 的应用程序很容易。</li>
+<li>Spring Boot 项目所需的开发或工程时间明显减少，通常会提高整体生产力。</li>
+<li>Spring Boot 不需要编写大量样板代码、XML 配置和注释。</li>
+<li>Spring 引导应用程序可以很容易地与 Spring 生态系统集成，如 Spring JDBC、Spring ORM、Spring Data、Spring Security 等。</li>
+<li>Spring Boot 遵循“固执己见的默认配置”，以减少开发工作（默认配置可以修改）。</li>
+<li>Spring Boot 应用程序提供嵌入式 HTTP 服务器，如 Tomcat 和 Jetty，可以轻松地开发和测试 web 应用程序。（这点很赞！普通运行 Java 程序的方式就能运行基于 Spring Boot web 项目，省事很多）</li>
+<li>Spring Boot 提供命令行接口(CLI)工具，用于开发和测试 Spring Boot 应用程序，如 Java 或 Groovy。</li>
+<li>Spring Boot 提供了多种插件，可以使用内置工具(如 Maven 和 Gradle)开发和测试 Spring Boot 应用程序。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>note</category>
+      </categories>
+      <tags>
+        <tag>note</tag>
+        <tag>blog</tag>
+        <tag>java</tag>
+        <tag>SpringBoot</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Spring相关笔记</title>
+    <url>/2021/12/06/note/Spring%E7%9B%B8%E5%85%B3/</url>
+    <content><![CDATA[<h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><ul>
+<li><a href="https://snailclimb.gitee.io/javaguide/#/docs/system-design/framework/spring/Spring%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93">https://snailclimb.gitee.io/javaguide/#/docs/system-design/framework/spring/Spring%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93</a></li>
+</ul>
+<p><br></br></p>
+<h1 id="关于Spring"><a href="#关于Spring" class="headerlink" title="关于Spring"></a>关于Spring</h1><p><br></br></p>
+<h2 id="什么是Spring框架？"><a href="#什么是Spring框架？" class="headerlink" title="什么是Spring框架？"></a>什么是Spring框架？</h2><p><code>Spring</code>是一款开源的轻量级java开发框架，旨在提高开发人员的开发效率以及系统的可维护性。<br><code>Spring</code>框架一般指的是<code>Spring Framework</code>，使用这些模块的集合可以方便协助我们进行开发。<br>Spring的组件代码是轻量级的，但它的配置却是重量级的。  </p>
+<p>题外话：<code>Spring（春天）</code>，可见其目标和使命就是为java程序员带来春天！</p>
+<!-- read more -->
+
+<br>
+
+<p><img src="https://makiori.oss-cn-beijing.aliyuncs.com/spring/1.png?versionId=CAEQGxiBgICYwf217BciIDRjOTk1NmQ4OThlZDQyMzdiMzMwOTE2NzllZDJlYzVj" alt="Spring的体系结构"></p>
+<ol>
+<li>左上角是负责持久层的部分，是Spring对数据持久化，事务管理，支持的功能框架。例如：SpringDataJpa。</li>
+<li>右上角是负责表现层的部分， 是Spring对表现出层数据的处理部分的支持。例如：SpringMVC。</li>
+<li>中间的两部分就是大家俗称的Spring框架。</li>
+<li>最底层的部分负责测试，是Spring对于项目的测试，提供了完整的一个测试环境支持。</li>
+</ol>
+<br>
+
+<p><code>Spring</code>提供的核心功能主要是<code>loC</code>和<code>AOP</code>。</p>
+<br>
+
+<h3 id="Ioc（Inverse-of-Control）"><a href="#Ioc（Inverse-of-Control）" class="headerlink" title="Ioc（Inverse of Control）"></a>Ioc（Inverse of Control）</h3><p><code>控制反转/反转控制</code>是一种设计思想，而不是一个具体的技术实现。<br>loC的思想就是将原本在程序中手动创建对象的控制权，交由Spring框架来管理。<br>loC并非Spring特有，在其他语言中也有应用。</p>
+<p>例如：现有类A依赖于类B</p>
+<ul>
+<li>传统的开发方式：往往是在类A中动手通过new关键字来new一个B的对象出来</li>
+<li>使用Ioc思想的开发方式：不通过new关键字来创建对象，而是通过Ioc容器（Spring框架）来帮助我们实例化对象。需要哪个对象，直接从Ioc容器里面过去接口。</li>
+</ul>
+<p>坏处：丧失了一个权力（创建、管理对象的权力）<br>好处：不用再考虑对象的创建，管理等一系列的事情</p>
+<h4 id="为什么叫控制反转？"><a href="#为什么叫控制反转？" class="headerlink" title="为什么叫控制反转？"></a>为什么叫控制反转？</h4><ul>
+<li>控制：指的是对象创建（实例化、管理）的权力</li>
+<li>反转：控制权交给外部环境（Spring框架、loC容器）</li>
+</ul>
+<p>将对象之间的相互依赖关系交给loC容器来管理，并由loC容器完成对象的注入。可以很大程度上简化应用的开发，把应用从复杂的依赖关系中解放出来。loC容器就如同一个工厂，当需要创建对象时，只需要配置好配置文件/注解即可，完全不用考虑对象是如何被创建出来的。</p>
+<h4 id="Ioc解决了什么问题"><a href="#Ioc解决了什么问题" class="headerlink" title="Ioc解决了什么问题"></a>Ioc解决了什么问题</h4><p>Ioc的思想就是两方之间不互相依赖，由第三方容器来管理相关资源，好处是什么呢？</p>
+<ol>
+<li>对象之间的耦合度或者说依赖程度降低</li>
+<li>资源变得容易管理；比如说用Spring容器提供的话很容易就可以实现一个单例。</li>
+</ol>
+<br>
+
+<h3 id="DI（Dependency-Injection）"><a href="#DI（Dependency-Injection）" class="headerlink" title="DI（Dependency Injection）"></a>DI（Dependency Injection）</h3><p><code>依赖注入</code> 首先理解依赖，程序运行的需要可以称之为依赖。由于<code>Spring框架</code>通过反射技术实例化了对象，并将对象的实例存入在容器进行管理。那么如果一个类中的属性为某个其余的类，属性无需手动赋值，通过Spring的配置文件，或者Spring提供的注解，通过Spring框架可以实现直接注入属性。</p>
+<br>
+
+<h3 id="AOP（Aspect-Oriented-Programming）"><a href="#AOP（Aspect-Oriented-Programming）" class="headerlink" title="AOP（Aspect-Oriented Programming）"></a>AOP（Aspect-Oriented Programming）</h3><p>AOP是OOP的一种延续。<br><code>面向切面编程</code>能够将那些与业务无关，却为业务模块共同调用的逻辑或责任（例如事务处理、日志管理、权限控制等）封装起来，便于减少系统的重复代码，降低模块间的耦合度，并有利于未来的可拓展性和可维护性。</p>
+<br>
+
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p><code>Spring</code>是分层的<code>Java SE/EE应用</code> 轻量级开源框架，以<code>IoC</code>和<code>AOP</code>为内核，提供了展示层<code>Spring MVC</code>和持久层<code>Spring JDBC</code>以及业务层事务管理等众多的企业级应用技术，还能整合开源世界众多著名的第三方框架和类库，是使用最多的<code>Java EE</code>企业应用开源框架。使用<code>Spring</code>能对<code>bean</code>对象的实例管理更加方便，代码编写更加优雅，降低代码的耦合性，提升代码的扩展性。</p>
+<br>
+
+<h2 id="Spring的优势"><a href="#Spring的优势" class="headerlink" title="Spring的优势"></a>Spring的优势</h2><ul>
+<li>Spring简化项目开发：Spring灵活全面的扩展功能，使我们开发项目如鱼得水。通过Spring提供的Ioc容器，可以将对象间的依赖关系交由Spring进行控制，避免硬编码所造成的过度程序耦合。用户也不必再未单例模式类，属性文件解析等这些很多底层的需求编写代码，可以更专注于上层的应用</li>
+<li>Spring的面向切面编程：Spring框架的AOP面向切面编程，极大地提高了程序的扩展性，支持开发人员实现对程序的自定义增强。同时可以方便地使用Spring提供的事务管理</li>
+<li>面向接口编程： 面向接口编程 降低代码的耦合性，同时也提高了代码的扩展性</li>
+<li>测试方便： 对于测试的支持 有很多的组件实现</li>
+<li>方便集成第三方框架Spring可以降低各种框架的使用难度，提供了对各种优秀框架（Struts，Hibernate，Hessian，Quartz等）的直接支持。</li>
+</ul>
+<p><br></br></p>
+<h1 id="关于Spring-bean"><a href="#关于Spring-bean" class="headerlink" title="关于Spring bean"></a>关于Spring bean</h1><h2 id="什么是bean？"><a href="#什么是bean？" class="headerlink" title="什么是bean？"></a>什么是bean？</h2><p>bean代指的就是那些被loC容器所管理的对象。<br>我们需要告诉loC容器帮助我们管理哪些对象，这个是通过配置元数据来定义的。配置元数据可以是XML文件、注解或者java配置类。</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Constructor-arg with &#x27;value&#x27; attribute --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;...&quot;</span> <span class="attr">class</span>=<span class="string">&quot;...&quot;</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">value</span>=<span class="string">&quot;...&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>org.springframework.beans</code>和<code>org.springframework.context</code>是Ioc实现的基础，未来如有兴趣，可以自行研究。</p>
+<br>
+
+<h2 id="bean的作用域"><a href="#bean的作用域" class="headerlink" title="bean的作用域"></a>bean的作用域</h2><p><code>Spring</code>中<code>bean</code>的作用域通常有下面几种：</p>
+<ul>
+<li><code>singleton</code>：唯一<code>bean</code>实例，<code>Spring</code>中的<code>bean</code>默认都是单例的，对单例设计模式的应用。</li>
+<li><code>prototype</code>：每次请求都会创建一个新的<code>bean</code>实例</li>
+<li><code>request</code>： 每一次<code>HTTP</code>请求都会产生一个新的<code>bean</code>，该<code>bean</code>仅在当前<code>HTTP request</code>内有效。</li>
+<li><code>session</code>：每一次来自新<code>session</code>的<code>HTTP</code>请求都会产生一个新的<code>bean</code>，该<code>bean</code>仅在当前<code>HTTP session</code>内有效。</li>
+<li><code>golobal-session</code>：全局<code>session</code>作用域，仅仅在基于<code>portlet</code>的wed应用中才有意义，<code>Spring5</code>已经没有了。<code>Portlet</code> 是能够生成语义代码(例如：HTML)片段的小型 <code>Java Web</code> 插件。它们基于 <code>portlet</code> 容器，可以像 <code>servlet</code> 一样处理 HTTP 请求。但是，与 <code>servlet</code> 不同，每个 <code>portlet</code> 都有不同的会话。</li>
+</ul>
+<br>
+
+<h2 id="如何配置bean的作用域"><a href="#如何配置bean的作用域" class="headerlink" title="如何配置bean的作用域"></a>如何配置bean的作用域</h2><p>xml方式：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;...&quot;</span> <span class="attr">class</span>=<span class="string">&quot;...&quot;</span> <span class="attr">scope</span>=<span class="string">&quot;singleton&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>注解方式：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="meta">@Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Person <span class="title">personPrototype</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Person();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="单例bean的线程安全问题"><a href="#单例bean的线程安全问题" class="headerlink" title="单例bean的线程安全问题"></a>单例bean的线程安全问题</h2><p>单例bean存在线程问题，主要是因为当多个线程操作同一个对象的时候是存在资源竞争的。</p>
+<p>解决方法：</p>
+<ol>
+<li>在bean中尽量避免定义可变的成员变量。</li>
+<li>在类中定义一个<code>ThreadLocal</code>成员变量，将需要的可变的成员变量保存在<code>ThreadLocal</code>中。</li>
+</ol>
+<h2 id="Component-和-Bean的区别"><a href="#Component-和-Bean的区别" class="headerlink" title="@Component 和 @Bean的区别"></a>@Component 和 @Bean的区别</h2><ol>
+<li><code>@Component</code>注解作用于类，而<code>@Bean</code>注解用于方法</li>
+<li><code>@Component</code>通常是通过类路径扫描来自动侦测以及自动装配到Spring容器中 （我们可以使用<code>@Component</code>注解定义要扫描的路径从中找出标识了需要装配的类自动装配到Spring的bean容器中）。<code>@Bean</code>注解通常是我们在标有该注解的方法中定义产生这个bean，<code>@Bean</code>告诉了Spring这是某个类的实例，当我需要用它的时候还给我。</li>
+<li><code>@bean</code>注解比<code>@Component</code>注解的自定义性更强，而且很多地方我们只能通过<code>@Bean</code>注解来注册bean。比如当我们引用第三方库的类需要装配到Spring容器，则只能通过<code>@Bean</code>来实现。 </li>
+</ol>
+<p><br></br></p>
+<h1 id="关于Spring-MVC"><a href="#关于Spring-MVC" class="headerlink" title="关于Spring MVC"></a>关于Spring MVC</h1><p>MVC 是模型(Model)、视图(View)、控制器(Controller)的简写，其核心思想是通过将业务逻辑、数据、显示分离来组织代码。要想真正理解Spring MVC，得想从Model 1 和 Model 2这两个没有Spring MVC的时代讲起。</p>
+<h2 id="Model-1-时代"><a href="#Model-1-时代" class="headerlink" title="Model 1 时代"></a>Model 1 时代</h2><p>在Model1 模式下，整个Web应用几乎全部用JSP页面组成，只用少量的JavaBean来处理数据库连接、访问等操作。这个模式下JSP即是控制层（Controller）又是表现层（View）, 这很明显会存在很多问题，比如控制逻辑和表现逻辑混杂在一起，导致代码重用率极低；再比如前端和后端相互依赖，难以进行测试维护并且开发效率极低。</p>
+<p><img src="https://makiori.oss-cn-beijing.aliyuncs.com/spring/mvc-mode1.png?versionId=CAEQGxiBgMC9qLm27BciIDI4NjBmYTg1MWM4MjQxMjk5ZWQ2NzA5YjE3ZTBiZjY0" alt="Model 1"></p>
+<h2 id="Model-2-时代"><a href="#Model-2-时代" class="headerlink" title="Model 2 时代"></a>Model 2 时代</h2><p>Java Bean(Model) + JSP(View) + Servlet (Controller)，这种开发模式就是早期的JavaWeb MVC 开发模式。</p>
+<ul>
+<li>Model: 系统涉及的数据，也就是dao和bean。</li>
+<li>View：展示模型中的数据，只是用来展示。</li>
+<li>Controller：处理用户请求都发送给Java Bean，返回数据给JSP并展示给用户。</li>
+</ul>
+<p><img src="https://makiori.oss-cn-beijing.aliyuncs.com/spring/mvc-model2.png?versionId=CAEQGxiBgIDRqLm27BciIGQwMWQ3ZThiMTIwYTRhOWZiZGQ1NjVmOGQ2OTUxNGY5" alt="Model 2"></p>
+<p>Model2模式下还存在很多问题，Model2的抽象和封装程度还远远不够，使用Model2进行开发时不可避免地会重复造轮子，这就大大降低了程序的可维护性和复用性。</p>
+<h2 id="Spring-MVC-时代"><a href="#Spring-MVC-时代" class="headerlink" title="Spring MVC 时代"></a>Spring MVC 时代</h2><p>Spring MVC 是当前最优秀的MVC框架。可以帮助我们进行更简洁的Web层的开发，并且它天生与Spring框架集成。Spring MVC 下我们一般把后端项目分为Service层（处理业务）、Dao层（数据库操作）、Entity层(实体层)、 Controller层（控制层，返回数据给前台页面）。</p>
+<h2 id="Spring-MVC-工作原理"><a href="#Spring-MVC-工作原理" class="headerlink" title="Spring MVC 工作原理"></a>Spring MVC 工作原理</h2><p><img src="https://makiori.oss-cn-beijing.aliyuncs.com/spring/test.png?versionId=CAEQGxiBgMD43tG27BciIDVmMzRmMjVlOTE4MDRhMmI4ZTZkZjM3MmFiZjljY2M1" alt="Spring MVC工作流程"></p>
+<p>流程说明：</p>
+<ol>
+<li>客户端（浏览器）发送请求，直接请求到 <code>DispatcherServlet</code>。</li>
+<li><code>DispatcherServlet</code> 根据请求信息调用 <code>HandlerMapping</code>, 解析请求对应的 <code>Handler</code>。</li>
+<li>解析到对应的 <code>Handler</code> （<code>Controller</code>）后，开始由 <code>HandlerAdapter</code> 适配器处理。</li>
+<li><code>HandlerAdapter</code> 会根据 <code>Handler</code> 来调用真正的处理器开处理请求， 并处理相应的业务逻辑。</li>
+<li>处理器处理完业务后，会返回一个 <code>ModelAndView</code> 对象，<code>Model</code>是返回的数据对象，<code>View</code> 是个逻辑上的 <code>View</code>。</li>
+<li><code>ViewResolver</code> 会根据逻辑 <code>View</code> 查找实际的 <code>view</code>。</li>
+<li><code>DispatcherServlet</code> 把返回的<code>Model</code>传给<code>View</code>（视图渲染）。</li>
+<li>把<code>View</code> 返回给请求者（浏览器）。</li>
+</ol>
+<p><br></br></p>
+]]></content>
+      <categories>
+        <category>note</category>
+      </categories>
+      <tags>
+        <tag>note</tag>
+        <tag>blog</tag>
+        <tag>java</tag>
+        <tag>Spring</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Go Web开发(Gin框架)</title>
     <url>/2021/10/26/note/GoWeb%E5%BC%80%E5%8F%91/</url>
     <content><![CDATA[<h1 id="写在开头"><a href="#写在开头" class="headerlink" title="写在开头"></a>写在开头</h1><p>这篇博客即属于博客也属于笔记，内容大部分来自于go编程课老师的Go Web开发(Gin 框架)简易入门教程。<br>本人做一些笔记整理成这篇博客。</p>
@@ -51,7 +219,6 @@
       </categories>
       <tags>
         <tag>note</tag>
-        <tag>blog</tag>
         <tag>go</tag>
       </tags>
   </entry>
@@ -313,51 +480,11 @@
       </tags>
   </entry>
   <entry>
-    <title>《角落里的魔女》第一章：书店里的魔女</title>
-    <url>/2021/09/12/novel/%E8%A7%92%E8%90%BD%E9%87%8C%E7%9A%84%E9%AD%94%E5%A5%B3/%E8%A7%92%E8%90%BD%E9%87%8C%E7%9A%84%E9%AD%94%E5%A5%B3%EF%BC%881%EF%BC%89/</url>
-    <content><![CDATA[<p>“所以说，小姐姐是魔女啰？”</p>
-<span id="more"></span>
-
-<p>在我面前的女孩子，双手不知所措地乱动着，脸上的表情感觉有点兴奋，又有点紧张。不过也难怪，毕竟就在刚刚，我做了些一般人做不太到的稀奇事情嘛……我从桌子上拿起了自己的马克杯，抿了一小口刚冲泡好的茶水，被烫了一下，还是先吹一吹吧。</p>
-<p>大概在半个小时前，我和往常一样，飞在半空中整理着店里的书籍。不用把梯子搬来搬去，会魔法就是这点方便，虽然好像我也可以用魔法搬运梯子就是了。我坐着的也不是魔女惯例的木扫帚，而是最近新购入的扫地机器人，圆圆的平板坐着比扫帚那单根木棍要舒服不少，要是能加个垫子就更好了。</p>
-<p>而就在我专心的时候，门口用来提醒我客人进门的铃铛却响了起来。明明记得门口挂着的应该是“休息中”的牌子才对啊。我还没反应过来，紧接而来的是女孩子大叫的声音。老实说吧，我对突然出现的事物都不擅长，比如说我原来并不害怕小强，但如果它是突然出现在我意想不到的地方的话，我还是能被它吓一大跳。于是乎，就这么被吓到的我，一下子失去了重心，从扫地机器人上面摔了下来。</p>
-<p>“小姐姐你没事吧？！”</p>
-<p>屁股疼的同时，眼前也是黑漆漆的一片，但我确切地听到了这个声音，它的主人好像是个年轻的女孩子。接下来的事情，就是她扶我起身坐到店里供客人看书的椅子上，我简单地使用了一下治愈魔法消去疼痛之后，泡了一壶茶，与她面对面地坐在了一起。</p>
-<p>回到现在。在我面前的，是一个穿着初中校服的女孩子，头发扎成了马尾辫，头在动的时候马尾也会跟着一甩一甩的，莫名感觉到可爱。脸蛋也是充满稚气，比起初中生更像是小学生的样子。要说我怎么知道那是初中校服的，这是因为几年前我也在那所初中就读。</p>
-<p>听着她从“你是怎么飞在空中的？”，到“原来你会魔法吗？好厉害！”，再到“所以说，小姐姐是魔女啰？”；我都没有掩藏自己是魔女的事情，现代社会人们对奇异事物的接受能力高了不少，算是好事情吧。生活上的熟人也大概全都知道自己的这个身份，不过大家待我还是如同常人一般，有可能是因为奶奶吧，具体情况就留到下次再讲。只要还不到极端情况，我就不需要去担心身份的问题。不过要是我想的话，对方可能连提问的机会也没有吧？所以没有什么关系，我对她的提问都一一作出了实际的回答。</p>
-<p>她的眼睛一亮，紧张的心情似乎都消失不见了，兴奋到双手都紧握成了拳头。</p>
-<p>“我呀，一直希望自己能遇到这个世界里的不可思议啊。”</p>
-<p>“不可思议？那是什么？”</p>
-<p>“没错，现在小姐姐你就是这个不可思议哦！”</p>
-<p>“嗯？什么？”</p>
-<p>“因为小姐姐你可是魔女啊！”</p>
-<p>我面前这个穿着初中校服的女孩子，激动地说着这番话。</p>
-<p>“仅仅只因为是魔女吗？但这个世界里不只有我一个魔女哦…甚至在很久很久之前，在这个世界里到处都能见到魔女呢。”我苦笑着说道。</p>
-<p>“但我相信，小姐姐你会是一位独一无二的魔女，会是我心里的，甚至是这个世界的不可思议哦！”她越说越激动，甚至将身子从桌子那头伸过来，紧握着我原本随意摆在桌上的的双手。</p>
-<p>“所以你提到的不可思议究竟是什么啊？”我有点被吓到了，她的力气虽然不大，但我怎么都甩不开她的手，还有我已经跟不上这孩子的想法了。感觉这样闹腾下去，会出一身的汗，于是我偷偷地调低了几度空调。</p>
-<p>在这之后，她开始一边不断提问，一边拿出来笔记本来做起了笔记，不过就像是夹带了私货一般，问我姓名年龄身高体重以及电话号码就算了，还要问我的三围是什么意思哦… 整个过程当中，唯一不变的就是她那眼中的星星，一直都在闪闪发光。</p>
-<p>人身调查了我大半天，她终于提出了“该回家了”的说法，在向我表示感谢之后，便起身向门口走去。</p>
-<p>“下次来的时候，小姐姐能给我讲讲关于魔女的故事吗？”</p>
-<p>“可以是可以…”但是流传下来关于魔女的故事都感觉挺没意思的啊，都听到耳朵生茧了。</p>
-<p>“那么就下次见咯。”她推开门，回头向我挥了挥手，接着就走到了门外。</p>
-<p>我看着她出门，当铃铛的声音消失，书店里又重回了寂静，我继续坐了一会，消化着刚刚发生的事情，直到杯中已经凉透的茶水喝完，才起身继续完成今天的工作。由于剩下的书都是摆在下层的，所以我既不用梯子，也用不着用飞的了。一切工作都做完之后，我无所事事地坐回在柜台里，习惯用于午休的躺椅上面，手里还转动着一只笔，消磨时间。</p>
-<p>“不可思议…”。到底是什么呢？</p>
-<p>门口的铃铛再次响起，这次我可没再被吓着了，而这次走进来的人，不是什么客人，而是我熟悉到不能再熟悉的人——我的同居人，名字是“晴云”，我一般叫她云云。</p>
-<p>“来客人了？今天不是休息吗？”她肩膀上挂着的环保袋里装得满满的。</p>
-<p>“云云~晚饭吃什么？”我依旧躺着。</p>
-<p>“我问题的回答呢？算了，今晚吃糖醋排骨哦。”</p>
-<p>“好耶！”我欢呼着坐起身来。</p>
-<p>“唉，这个是什么？”我看着云云弯下腰，捡起了一个我之前都没有注意到的东西。</p>
-<p>“这个不是学生证吗？而且还是我们以前那个中学的…”</p>
-<p>她走过来，然后把东西递给了我。</p>
-<p>不久前还在我面前的女孩子如今出现在相片里面，样子没怎么变化，看来是最近才拍的照片，有可能是刚入学吧。名字那一栏里写着“雨点”。</p>
-<p>“难道这就是不可思议的联系吗…”我自言自语道。</p>
-<p>“你说什么？”云云问道。</p>
-<p>“没什么，我找个时间去一趟学校给她送去吧，或者等她来取，她说过她还会来的。”我将证件随手一放，从柜台后面走出来，打算帮云云提她的袋子。</p>
-<p>“说起来怎么那么冷啊，空调你开多少度了？”云云打了个喷嚏。</p>
-<p>“啊…18度？”我突然感觉到了一丝不妥。</p>
-<p>“我不是说过只能开26度吗？你是不知道电费有多贵吗？……”云云皱起眉头。</p>
-<p>“…”预感到云云的话会讲会很长的我，像被训斥的孩子无法找到反驳的理由一般，只好加快脚步默默带着手中的重物们，逃进了后面的生活区域里。</p>
+    <title>《角落里的魔女》目前可公开的情报（1）</title>
+    <url>/2021/09/12/novel/%E8%A7%92%E8%90%BD%E9%87%8C%E7%9A%84%E9%AD%94%E5%A5%B3/%E8%A7%92%E8%90%BD%E9%87%8C%E7%9A%84%E9%AD%94%E5%A5%B3%EF%BC%88%E4%BA%BA%E8%AE%BE1%EF%BC%89/</url>
+    <content><![CDATA[<h1 id="风织诗"><a href="#风织诗" class="headerlink" title="风织诗"></a>风织诗</h1><p>18岁，大学生一年级，目前休学中。<br>风铃书屋如今的主人。<br>不善于表达，但其实内心想法很丰富。<br>曾经害怕自己与生俱来的魔法能力，<br>现已经接受，并沉迷于翻阅书籍钻研魔法。<br>但对魔法的看法还只是单纯觉得方便而已。</p>
+<h1 id="晴云"><a href="#晴云" class="headerlink" title="晴云"></a>晴云</h1><p>19岁，大学生一年级，语言专业。<br>目前与风织诗同居于风铃书屋。<br>打理着“小诗”生活中的点点滴滴，<br>初中时的阳角变成了现在的老妈子角色。<br>对于风织诗来说，晴云是鼓舞她前进的人，<br>正视自己手中的魔法，使其成为真正的力量。<br>而对于晴云来说，风织诗也如同一阵清风，<br>带着自己拂过这个世界上新奇的事物。</p>
+<h1 id="雨点"><a href="#雨点" class="headerlink" title="雨点"></a>雨点</h1><p>14岁，初中生<br>不知为何，在寻找着这个世界的“不可思议”。</p>
 ]]></content>
       <categories>
         <category>novel</category>
@@ -365,6 +492,200 @@
       <tags>
         <tag>小说</tag>
         <tag>角落里的魔女</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《角落里的魔女》第1章：书店里的魔女</title>
+    <url>/2021/09/12/novel/%E8%A7%92%E8%90%BD%E9%87%8C%E7%9A%84%E9%AD%94%E5%A5%B3/%E8%A7%92%E8%90%BD%E9%87%8C%E7%9A%84%E9%AD%94%E5%A5%B3%EF%BC%881%EF%BC%89/</url>
+    <content><![CDATA[<p>&nbsp;&nbsp;“所以说，小姐姐是魔女啰？”</p>
+  <!-- read more -->
+
+<p>&nbsp;&nbsp;面前的这个女孩子，从她的眼睛里仿佛能看到星星一般。望着她兴奋又有点紧张的样子，我淡定地从桌子上拿起了自己的马克杯，抿了口刚刚冲泡好的茶水，却不小心被烫了一下嘴，还是先吹一吹吧。</p>
+<p>&nbsp;&nbsp;大概在半个小时前，我和往常一样，飞在半空中整理着店里的书籍。魔法有时还是挺方便的，不用把梯子搬来搬去，虽然我也可以用魔法搬运梯子就是了。我坐着的也不是魔女惯例的木扫帚，而是最近新购入的扫地机器人，圆圆的平板坐着比扫帚那单根木棍要舒服不少，要是能加个垫子就更好了，下次试一试。而就在我专心的时候，门口用来提醒我客人进门的铃铛却响了起来，明明记得外面挂着的应该是“休息中”的牌子才对啊。我还没反应过来，紧接而来的是女孩子大叫的声音。老实说，我对突然出现的事物都不擅长，比如说我原来并不害怕小强，但如果它是突然出现在我意想不到的地方的话，我还是能被它吓一大跳。于是乎就这么被吓到的我，一下子失去了重心，从扫地机器人上面摔了下来。</p>
+<p>&nbsp;&nbsp;“小姐姐你没事吧？！”</p>
+<p>&nbsp;&nbsp;屁股疼的同时，眼前也是黑漆漆的一片，但我确切地听到了有人在向我跑来，以及这个声音，它的主人好像是个年轻的女孩子。接下来的事情，就是她扶我起身，坐到店里供客人看书的椅子上。在我缓了一阵之后，去泡了一壶茶，和她面对面地坐在了一起。</p>
+<p>&nbsp;&nbsp;回到现在。在我面前的，是一个穿着初中校服的女孩子，扎着马尾辫，头在晃动的时候马尾也会跟着一甩一甩的，感觉好可爱。脸蛋也是充满稚气，比起初中生更像是小学生的样子。要说我是怎么知道那是初中校服，这是因为几年前我也在那所初中就读。</p>
+<p>&nbsp;&nbsp;听着她从“你是怎么飞在空中的？”，到“难道说你会魔法吗？好厉害！”，再到“所以说，小姐姐是魔女啰？”；我都没怎么作声，但也没有否认地点着头，没有刻意去掩藏自己是魔女的事情，相信如果是以前的自己的话，是绝对做不到的。</p>
+<p>&nbsp;&nbsp;现代社会的人们对奇异事物的接受能力高了不少，生活上的熟人也大概全都知道自己的这个身份，不过大家待我还是如同常人一般。或许也有奶奶的关系吧。只要还不到极端情况，我就不需要去担心自己身份的问题。其实要是我想的话，不管是大家还是眼前的这个女孩，都不会有提出问题的机会，所以没必要顾虑太多。</p>
+<p>&nbsp;&nbsp;她的眼睛一亮，紧张的心情似乎已经消失不见了，兴奋到双手都紧握成了拳头。让我想起了自己在初中的时候，也曾见过这样的表情，是从谁身上来着…</p>
+<p>&nbsp;&nbsp;“我呀，一直希望自己能遇到这个世界里的不可思议啊。”女孩低下头，好像在收敛自己的情绪一般，轻声地说出了这番话。</p>
+<p>&nbsp;&nbsp;“…不可思议，…那是什么？”我有点不明所以，于是出声问道。</p>
+<p>&nbsp;&nbsp;“现在小姐姐你就是这个不可思议哦！”哦，她并没有收敛。</p>
+<p>&nbsp;&nbsp;“嗯？什么？”我更加不明所以了。</p>
+<p>&nbsp;&nbsp;“因为小姐姐你可是魔女啊！”</p>
+<p>&nbsp;&nbsp;我面前这个穿着初中校服的女孩子，激动地说着这番话。</p>
+<p>&nbsp;&nbsp;“仅仅只因为是魔女吗？这个世界里可不只有我一个魔女哦…甚至在很久很久之前，这里到处都能见到魔女呢。”我苦笑着说道，已经跟不上她的节奏。</p>
+<p>&nbsp;&nbsp;“但我相信，小姐姐你会是一位独一无二的魔女，会是我心里的，甚至是这个世界的不可思议哦！”她越说越激动，甚至将身子从桌子那头伸过来，紧握着我原本随意摆在桌上的的双手。</p>
+<p>&nbsp;&nbsp;“…”我有点被吓到了，她的力气虽然不大，但我却怎么都无法甩开她的手。感觉再继续这样闹腾下去，我会出一身的汗，于是偷偷地用魔法调低了几度空调。</p>
+<p>&nbsp;&nbsp;在这之后，她开始一边不断提问，一边拿出来笔记本来做起了笔记，不过就像是夹带了私货一般，问我姓名年龄以及电话号码就算了，还要问我的身高体重三围是什么意思哦…整个过程当中，唯一不变的就是她那眼中的星星，一直都在闪闪发光。人身调查了我大半天，她终于提出了“该回家了”的说法，在向我表示感谢之后，便起身向门口走去。</p>
+<p>&nbsp;&nbsp;“下次来的时候，小姐姐能给我讲讲关于魔女的故事吗？”她推着门，转过头来问道。</p>
+<p>&nbsp;&nbsp;“可以是可以…”</p>
+<p>&nbsp;&nbsp;“那么就下次见咯。”她向我挥了挥手，接着就走到了门外。</p>
+<p>&nbsp;&nbsp;我望着她出门，当铃铛的声音消失，书店里又重回了寂静，我继续坐了一会，消化着刚刚发生的事情，直到杯中已经凉透的茶水喝完，才起身继续完成今天的工作。由于剩下的书都是摆在下层的，所以我既不用梯子，也用不着用飞的了。在一切工作都做完之后，我无所事事地躺回在柜台里，那张习惯用于午休的躺椅上面。</p>
+<p>&nbsp;&nbsp;“不可思议… 到底是什么意思呢？”我回想着今天的事情。</p>
+<p>&nbsp;&nbsp;门口的铃铛再次响起，这次我可没再被吓着了，而这次走进来的人，不是什么客人，而是我熟悉到不能再熟悉的同居人，名字是“晴云”，我一般叫她云云。</p>
+<p>&nbsp;&nbsp;“怎么躺在这里了？来客人了？今天不是休息吗？”她肩膀上挂着的环保袋看起来装得满满的。</p>
+<p>&nbsp;&nbsp;“云云~晚饭吃什么？”我并没有起来的意思。</p>
+<p>&nbsp;&nbsp;“我问题的回答呢？算了，今晚吃糖醋排骨哦。”</p>
+<p>&nbsp;&nbsp;“好耶！”我欢呼着坐起身来。</p>
+<p>&nbsp;&nbsp;“唉，这个是什么？”云云弯下腰，捡起了一个我之前都没有注意到的东西。</p>
+<p>&nbsp;&nbsp;“这个不是学生证吗？而且还是我们以前那个中学的…”她走过来，然后把东西递给了我。</p>
+<p>&nbsp;&nbsp;不久还在我面前的女孩子，现在出现在相片里面，名字那一栏里写着“雨点”。</p>
+<p>&nbsp;&nbsp;“不可思议的联系吗…”我自言自语道。</p>
+<p>&nbsp;&nbsp;“你在说什么？”云云问道。</p>
+<p>&nbsp;&nbsp;“没什么，我找个时间去一趟学校给她送去吧，或者等她来取也行，她说过她还会来的。”我将证件随手一放，从柜台后面走出来，打算帮云云提她的袋子。</p>
+<p>&nbsp;&nbsp;“小魔杖呢？你给她喂饭了吗？”</p>
+<p>&nbsp;&nbsp;“啊，我忘了，它应该在哪睡着吧…”</p>
+<p>&nbsp;&nbsp;“你还有什么是记得的？”</p>
+<p>&nbsp;&nbsp;“我可是刚刚才干完活！”</p>
+<p>&nbsp;&nbsp;“说起来怎么那么冷啊，空调你开了多少度啊？”云云突然打了个喷嚏。</p>
+<p>&nbsp;&nbsp;“啊…18度？”我突然感觉到了一丝不妥。</p>
+<p>&nbsp;&nbsp;“我不是说过只能开26度吗？你是不知道电费有多贵吗？……”云云皱起眉头。</p>
+<p>&nbsp;&nbsp;“…”</p>
+<p>&nbsp;&nbsp;预感到云云的训话会讲会很长的我，像是无法找到反驳理由的小孩子一般，只好加快脚步默默带着手中的重物们，逃进了后面的生活区域里。</p>
+]]></content>
+      <categories>
+        <category>novel</category>
+      </categories>
+      <tags>
+        <tag>小说</tag>
+        <tag>角落里的魔女</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>go语言学习笔记(1)</title>
+    <url>/2021/09/05/note/go%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%881%EF%BC%89/</url>
+    <content><![CDATA[<h1 id="GO-语言学习"><a href="#GO-语言学习" class="headerlink" title="GO 语言学习"></a>GO 语言学习</h1><p>开始了GO语言的学习，做点自认为有意思的笔记。<br>笔记摘抄自<a href="http://www.imooc.com/wiki/golesson">慕课教程 Go入门教程</a><br><br></br></p>
+<h1 id="Go-语言的"><a href="#Go-语言的" class="headerlink" title="Go 语言的 :="></a>Go 语言的 :=</h1><h2 id="单变量"><a href="#单变量" class="headerlink" title="单变量 :="></a>单变量 :=</h2><p>Go语言中新增了一个特殊的运算符 :=，可以是变量在未声明的情况下被赋值使用。<br>使用方法与带值声明变量类似，只是少了var关键字，使用例子如下：</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    helloWorld := <span class="string">&quot;Hello World!&quot;</span></span><br><span class="line">    fmt.Println(helloWorld)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="多变量"><a href="#多变量" class="headerlink" title="多变量 :="></a>多变量 :=</h2><p>在 Go 语言的多变量赋值体系中，也支持了:=运算符。你可以使用形如变量名,变量名:=变量值,<br>变量值的形式来进行多变量操作。其使用方法和多变量带值声明类似，只是少了var关键字。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    hello, World := <span class="string">&quot;Hello&quot;</span>, <span class="string">&quot;World!&quot;</span></span><br><span class="line">    fmt.Println(hello, World)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></br></p>
+<h1 id="Go语言的整形（int）数据类型"><a href="#Go语言的整形（int）数据类型" class="headerlink" title="Go语言的整形（int）数据类型"></a>Go语言的整形（int）数据类型</h1><h2 id="定长类型"><a href="#定长类型" class="headerlink" title="定长类型"></a>定长类型</h2><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>int8</td>
+<td>-128~127</td>
+</tr>
+<tr>
+<td>int16</td>
+<td>-32768~32786</td>
+</tr>
+<tr>
+<td>int32</td>
+<td>-2147483648~2147483647</td>
+</tr>
+<tr>
+<td>int64</td>
+<td>-9223372036854775808~9223372036854775807</td>
+</tr>
+</tbody></table>
+<p><br></br></p>
+<h2 id="不定长类型"><a href="#不定长类型" class="headerlink" title="不定长类型"></a>不定长类型</h2><figure class="highlight plain"><figcaption><span>num int ``` 这个类型在32位的系统中长度和int32一致，在64位的系统中长度和int64一致。</span></figcaption><table><tr><td class="code"><pre><span class="line">&lt;br&gt;&lt;&#x2F;br&gt;</span><br><span class="line"></span><br><span class="line">## 类型转换</span><br><span class="line">Go 语言是强类型语言，各个虽然同是整型，但是不同整型的变量不允许直接赋值，需要进行强制类型转换，同时长度大的整型向长度小的整型转换时，要考虑溢出问题。而且不同类的整型无法进行运算，想要进行运算必须要进行强制类型转换，使他们都变成同一类型之后，再运算。举一个int8和int16类型的变量赋值与计算的例子：</span><br><span class="line">&#96;&#96;&#96;Go</span><br><span class="line">package main</span><br><span class="line"></span><br><span class="line">import (</span><br><span class="line">    &quot;fmt&quot;</span><br><span class="line">    &quot;math&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">    var a int8 &#x3D; math.MaxInt8</span><br><span class="line">    var b int16 &#x3D; math.MaxInt8 + 1</span><br><span class="line">    fmt.Println(a, b)</span><br><span class="line"></span><br><span class="line">    a &#x3D; int8(b)</span><br><span class="line">    fmt.Println(a, b) &#x2F;&#x2F;因为b长度过长，在转换为int8的过程中溢出了</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;整型变量可以和常数进行计算</span><br><span class="line">    a &#x3D; a + 1</span><br><span class="line">    b &#x3D; b + 1</span><br><span class="line">    fmt.Println(a, b)</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;不同类型的整型变量计算必须强转为相同类型，一般转换为长度大的来计算</span><br><span class="line">    c :&#x3D; int16(a) + b</span><br><span class="line">    fmt.Println(c)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><br></br></p>
+<h1 id="GO语言中代替枚举的办法"><a href="#GO语言中代替枚举的办法" class="headerlink" title="GO语言中代替枚举的办法"></a>GO语言中代替枚举的办法</h1><p>枚举类型用于声明一组命名的常量，当一个变量有几种可能的取值时，可以将它定义为枚举类型。在 Go 语言中，并没有提供枚举类型，但是枚举类型又是开发过程中非常重要的数据类型。因为它可以事先定义一组有效的值，可以有效地防止用户提交无效数据，抽象到业务场景中就是我们平时网页上遇到的下拉框，或者我们选择快递地址时的省市信息，均为枚举类型的用武之地。所以在 Go 语言中对常量进行了一定的扩展，使其可以完美地替代枚举类型。<br><br></br></p>
+<h2 id="常量中的iota"><a href="#常量中的iota" class="headerlink" title="常量中的iota"></a>常量中的iota</h2><p>为了使常量可以更好地替代枚举类型，Go 语言提供了一个iota关键字。使用iota初始化常量，可以生成一组规则类似的常量，但是不用每个常量都写一遍表达式。在一个const()表达式中，从iota开始的常量会被置为0，向后每个常量的值为前一个常量的值加一：</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">&quot;fmt&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Weekday <span class="keyword">int</span> <span class="comment">//自定义一个星期类型，作为枚举类型</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">    Sun Weekday = <span class="literal">iota</span></span><br><span class="line">    Mon</span><br><span class="line">    Tues</span><br><span class="line">    Wed</span><br><span class="line">    Thur</span><br><span class="line">    Fri</span><br><span class="line">    Sat</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    fmt.Println(<span class="string">&quot;Sun :&quot;</span>, Sun)</span><br><span class="line">    fmt.Println(<span class="string">&quot;Mon :&quot;</span>, Mon)</span><br><span class="line">    fmt.Println(<span class="string">&quot;Tues:&quot;</span>, Tues)</span><br><span class="line">    fmt.Println(<span class="string">&quot;Wed :&quot;</span>, Wed)</span><br><span class="line">    fmt.Println(<span class="string">&quot;Thur:&quot;</span>, Thur)</span><br><span class="line">    fmt.Println(<span class="string">&quot;Fri :&quot;</span>, Fri)</span><br><span class="line">    fmt.Println(<span class="string">&quot;Sat :&quot;</span>, Sat)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><br></br></p>
+<h2 id="将枚举值转换为字符串"><a href="#将枚举值转换为字符串" class="headerlink" title="将枚举值转换为字符串"></a>将枚举值转换为字符串</h2><p>使用iota是可以使用 Go 语言的常量代替枚举类型，但是由于输出值均为阿拉伯数字，给调试和辨识造成了一定的困难。为了解决这一问题，Go 语言还提供了使常量枚举值输出为字符串的办法。需要我们手动构造一个使用枚举类型输出字符串的方法。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">&quot;fmt&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Weekday <span class="keyword">int</span> <span class="comment">//自定义一个星期类型，作为枚举类型</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">    Sun Weekday = <span class="literal">iota</span></span><br><span class="line">    Mon</span><br><span class="line">    Tues</span><br><span class="line">    Wed</span><br><span class="line">    Thur</span><br><span class="line">    Fri</span><br><span class="line">    Sat</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(w Weekday)</span> <span class="title">String</span><span class="params">()</span> <span class="title">string</span></span> &#123;</span><br><span class="line">    <span class="keyword">switch</span> w &#123;</span><br><span class="line">    <span class="keyword">case</span> Sun:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Sun&quot;</span></span><br><span class="line">    <span class="keyword">case</span> Mon:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Mon&quot;</span></span><br><span class="line">    <span class="keyword">case</span> Tues:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Tues&quot;</span></span><br><span class="line">    <span class="keyword">case</span> Wed:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Wed&quot;</span></span><br><span class="line">    <span class="keyword">case</span> Thur:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Thur&quot;</span></span><br><span class="line">    <span class="keyword">case</span> Fri:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Fri&quot;</span></span><br><span class="line">    <span class="keyword">case</span> Sat:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Sat&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//不存在的枚举类型就返回&quot;N/A&quot;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;N/A&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    fmt.Println(<span class="string">&quot;Sun :&quot;</span>, Sun)</span><br><span class="line">    fmt.Println(<span class="string">&quot;Mon :&quot;</span>, Mon)</span><br><span class="line">    fmt.Println(<span class="string">&quot;Tues:&quot;</span>, Tues)</span><br><span class="line">    fmt.Println(<span class="string">&quot;Wed :&quot;</span>, Wed)</span><br><span class="line">    fmt.Println(<span class="string">&quot;Thur:&quot;</span>, Thur)</span><br><span class="line">    fmt.Println(<span class="string">&quot;Fri :&quot;</span>, Fri)</span><br><span class="line">    fmt.Println(<span class="string">&quot;Sat :&quot;</span>, Sat)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注：不常使用，稍作了解即可。<br><br></br></p>
+<h1 id="GO语言的循环语句"><a href="#GO语言的循环语句" class="headerlink" title="GO语言的循环语句"></a>GO语言的循环语句</h1><p>在GO语言中减少了循环语句的关键字，仅有一个<code>for</code>关键字<br>但不仅没有减少其功能，而且还兼容了其他语言中的<code>while</code>关键字的用法，甚至更强大。<br><br></br></p>
+<h2 id="for循环语句"><a href="#for循环语句" class="headerlink" title="for循环语句"></a>for循环语句</h2><h3 id="普通用法"><a href="#普通用法" class="headerlink" title="普通用法"></a>普通用法</h3><p>在GO语言中，for循环之后一样可以跟三个语句<code>（单次表达式; 条件表达式; 末尾循环体）</code> <br><br>但是它不需要<code>()</code>来包裹这三个表达式，写法上也更加简洁。例子如下：</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">for</span> a := <span class="number">0</span>; a &lt; <span class="number">10</span>; a++ &#123;</span><br><span class="line">        fmt.Println(a)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    a := <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> ; a &lt; <span class="number">10</span>; a++ &#123;<span class="comment">//表达式可以省略，但是;不能省略</span></span><br><span class="line">        fmt.Println(a)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="代替while的用法"><a href="#代替while的用法" class="headerlink" title="代替while的用法"></a>代替while的用法</h3><p>在其它大部分语言中 for 循环中省略单次表达式和末尾循环体其实就和其它语句中的 while 用法一致了。<br> 所以在 Go 语言中，直接使用省去单次表达式和末尾循环体的 for 循环语句来代替 while 的用法.<br>为了简便代码书写，Go 语言中 for 循环语句在省去单次表达式和末尾循环体时，可以不写分号。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    a := <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> a &lt; <span class="number">10</span> &#123; <span class="comment">//和其它语言中的while(a&lt;10)一致</span></span><br><span class="line">        fmt.Println(a)</span><br><span class="line">        a++</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="for语言中的break和continue"><a href="#for语言中的break和continue" class="headerlink" title="for语言中的break和continue"></a>for语言中的<code>break</code>和<code>continue</code></h2><p>在我们的生产环境中，经常需要用到死循环的场景。所以在 Go 语言中新增了一个 for 关键字死循环的用法，让程序员不用写无聊的<code>for(;;)&#123;&#125;</code>和<code>do&#123;&#125; while(1)</code>同时可以使用<code>break</code>和<code>continue</code>来控制循环。<code>break</code> 和 <code>continue</code>的逻辑和语法类似，故笔记只有<code>break</code>。</p>
+<h3 id="break跳出单层死循环"><a href="#break跳出单层死循环" class="headerlink" title="break跳出单层死循环"></a>break跳出单层死循环</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    a := <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> &#123; <span class="comment">//死循环的写法就是省略 单次表达式；条件表达式；末尾循环体</span></span><br><span class="line">        fmt.Println(a)</span><br><span class="line">        a++</span><br><span class="line">        <span class="keyword">if</span> a &gt;= <span class="number">10</span> &#123;</span><br><span class="line">            <span class="keyword">break</span> <span class="comment">//跳出死循环</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></br></p>
+<h3 id="break跳出多层死循环"><a href="#break跳出多层死循环" class="headerlink" title="break跳出多层死循环"></a>break跳出多层死循环</h3><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    a := <span class="number">0</span></span><br><span class="line">LOOP:</span><br><span class="line">    <span class="keyword">for</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> &#123;</span><br><span class="line">            fmt.Println(a)</span><br><span class="line">            a++</span><br><span class="line">            <span class="keyword">if</span> a &gt;= <span class="number">10</span> &#123;</span><br><span class="line">                <span class="keyword">break</span> LOOP <span class="comment">//跳出循环至LOOP所在的层级</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></br></p>
+<h1 id="Go语言的通道"><a href="#Go语言的通道" class="headerlink" title="Go语言的通道"></a>Go语言的通道</h1><p>Go 语言中有一个特殊的类型 chan，这是在 Go 语言的多线程操作中非常重要的一个数据类型。它的一般用于线程之间的数据传输，所以这个操作类型叫做 “ 通道 (channel)”。<br><br></br></p>
+<h2 id="通道的声明和定义"><a href="#通道的声明和定义" class="headerlink" title="通道的声明和定义"></a>通道的声明和定义</h2><p>通道可以理解为一种特殊的变量，所以它的声明和其它变量的声明并没有太大的区别，声明通道变量的写法如下：</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> c <span class="keyword">chan</span> <span class="keyword">int</span> <span class="comment">//声明一个存放int类型数据的通道</span></span><br></pre></td></tr></table></figure>
+<p>声明之后不能被直接使用，要通过内置函数<code>make()</code>来创建一下通道变量才可以使用：</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> c <span class="keyword">chan</span> <span class="keyword">int</span> <span class="comment">//声明一个存放int类型数据的通道</span></span><br><span class="line">c = <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>, <span class="number">1</span>) <span class="comment">//创建一个长度为1的通道</span></span><br></pre></td></tr></table></figure>
+<p>所以一般最好使用<code>：=</code>来同时声明和创建：</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">c := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>, <span class="number">1</span>) <span class="comment">//声明并创建一个存放int类型数据的通道</span></span><br></pre></td></tr></table></figure>
+<p><br></br></p>
+<h2 id="通道的使用"><a href="#通道的使用" class="headerlink" title="通道的使用"></a>通道的使用</h2><p>在 Go 语言中，使用 &lt;- 符号来向通道中塞取数据。放在通道右边 chan &lt;-，就是塞数据，放在通道左边 &lt;- chan ，就是取数据。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    c := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>, <span class="number">1</span>) </span><br><span class="line">    c &lt;- <span class="number">10</span> <span class="comment">//将10塞入通道中</span></span><br><span class="line">    i := &lt;-c <span class="comment">//将10从通道中取出，并赋值给变量i</span></span><br><span class="line">    fmt.Println(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></br></p>
+<h2 id="通道结合-select-流程控制"><a href="#通道结合-select-流程控制" class="headerlink" title="通道结合 select 流程控制"></a>通道结合 select 流程控制</h2><p>在 Go 语言中为了更方便的利用通道的功能，提供了一个仅用于通道的流程控制语句：<code>select...case</code> 使用这个语句可以同时监听数个通道，非常适合用于并发时的进程调度，或者模块之间的解耦合。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    c := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> a := <span class="number">0</span>; a &lt; <span class="number">2</span>; a++ &#123;</span><br><span class="line">        <span class="keyword">select</span> &#123;</span><br><span class="line">        <span class="keyword">case</span> i := &lt;-c:</span><br><span class="line">            fmt.Println(<span class="string">&quot;从通道中取出&quot;</span>, i)</span><br><span class="line">        <span class="keyword">case</span> c &lt;- <span class="number">10</span>:</span><br><span class="line">            fmt.Println(<span class="string">&quot;将 10 塞入通道中&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></br></p>
+<h1 id="Go语言函数中的defer"><a href="#Go语言函数中的defer" class="headerlink" title="Go语言函数中的defer"></a>Go语言函数中的defer</h1><p>在 Go 语言中的 defer 关键字就是 Go 语言中延迟语句的标志。Go 语言会在函数即将返回时按逆序执行 defer 后的语句。也就是说先被 defer 的语句后执行，最先执行最后被 defer 的语句。defer 和有些语言中的 finally 语句块的用法类似，一般都用于释放一些资源，最常用的地方就是进程锁的释放。<br><br></br></p>
+<h2 id="defer的逆序执行"><a href="#defer的逆序执行" class="headerlink" title="defer的逆序执行"></a>defer的逆序执行</h2><p><code>defer</code>会在函数即将结束的时候执行，而且是按照<code>defer</code>的顺序逆序执行。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">defer</span> fmt.Println(<span class="string">&quot;第一个defer的语句&quot;</span>)</span><br><span class="line">    <span class="keyword">defer</span> fmt.Println(<span class="string">&quot;第二个defer的语句&quot;</span>)</span><br><span class="line">    <span class="keyword">defer</span> fmt.Println(<span class="string">&quot;第三个defer的语句&quot;</span>)</span><br><span class="line">    fmt.Println(<span class="string">&quot;Hello Codey!&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Hello Codey!</span><br><span class="line">第三个defer的语句</span><br><span class="line">第二个defer的语句</span><br><span class="line">第一个defer的</span><br></pre></td></tr></table></figure>
+<p><br></br></p>
+<h2 id="defer中的变量"><a href="#defer中的变量" class="headerlink" title="defer中的变量"></a>defer中的变量</h2><p><code>defer</code>关键字之后若有变量，则<code>defer</code>记录的是在<code>defer</code>时的变量值，而不是最后函数结束时的变量值:</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    a := <span class="number">10</span></span><br><span class="line">    <span class="keyword">defer</span> fmt.Println(<span class="string">&quot;defer时a的值为&quot;</span>, a)</span><br><span class="line">    a = <span class="number">100</span></span><br><span class="line">    fmt.Println(<span class="string">&quot;print时a的值为&quot;</span>, a)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">print时a的值为100</span><br><span class="line">defer时a的值为10</span><br></pre></td></tr></table></figure>
+<p><br></br></p>
+<h2 id="defer注意小结"><a href="#defer注意小结" class="headerlink" title="defer注意小结"></a>defer注意小结</h2><p><code>defer</code>是先声明后执行的语句模式。<br><br><code>defer</code>会在函数即将结束的时候统一执行。<br><br><code>defer</code>中的变量值是不会被defer之后的语句改变。<br><br><br></br></p>
+<h1 id="Go语言中的闭包"><a href="#Go语言中的闭包" class="headerlink" title="Go语言中的闭包"></a>Go语言中的闭包</h1><p>简单的说 Go 语言的闭包就是一个引用了外部自由变量的匿名函数，被引用的自由变量和该匿名函数共同存在，不会因为离开了外部环境就被释放或者删除，还可以在这个匿名函数中继续使用。<br><br></br></p>
+<h2 id="Go语言的匿名函数"><a href="#Go语言的匿名函数" class="headerlink" title="Go语言的匿名函数"></a>Go语言的匿名函数</h2><p>匿名函数，顾名思义，就是隐藏函数名的函数。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">&quot;fmt&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">    fmt.Println(<span class="string">&quot;匿名函数作为变量来使用&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    f()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">        fmt.Println(<span class="string">&quot;匿名函数直接使用&quot;</span>)</span><br><span class="line">    &#125;()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></br></p>
+<h2 id="匿名函数引用外部变量"><a href="#匿名函数引用外部变量" class="headerlink" title="匿名函数引用外部变量"></a>匿名函数引用外部变量</h2><p>如果在匿名函数内，使用了外部环境的变量，就构成了一个闭包。简单来讲就是一个函数内，使用匿名函数来操作函数内声明的变量。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">&quot;fmt&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    str := <span class="string">&quot;Hello World!&quot;</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">        str = <span class="string">&quot;Hello Codey!&quot;</span></span><br><span class="line">    &#125;()</span><br><span class="line">    fmt.Println(str)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Hell Codey!</span><br></pre></td></tr></table></figure>
+<p>上述例子简单的构造了一个闭包，在匿名函数中并没有声明或者定义str这个变量，但是可以直接操作，就是引用可main函数中的自由变量。这个例子可能对自由变量的引用表现不是很直观，我们接下来使用defer和闭包相结合，深入了解一下闭包中的引用外部变量。<br><br></br></p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">&quot;fmt&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    str := <span class="string">&quot;Hello World!&quot;</span></span><br><span class="line">    <span class="keyword">defer</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">        fmt.Println(<span class="string">&quot;defer str=&quot;</span>, str)</span><br><span class="line">    &#125;()</span><br><span class="line">    str = <span class="string">&quot;Hello Codey!&quot;</span></span><br><span class="line">    fmt.Println(<span class="string">&quot;main str=&quot;</span>, str)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">main str &#x3D; Hello Codey!</span><br><span class="line">defer str &#x3D; Hello Codey!</span><br></pre></td></tr></table></figure>
+<p>前文提<code>defer</code>的时候明确介绍了<code>defer</code> 后变量是保留它在<code>defer</code>时的值，而不会被<code>defer</code>之后的代码所改变。但是在闭包这边这个看起来不太适用，其实是适用的，只是闭包是引用了这个变量，也就是说，在<code>defer</code>时被保留下来的是这个变量的地址，后续代码改变的不是地址，而是这个地址存储的值，所以后续代码对这个变量的操作，都会反应到这个 <code>defer</code>中。<br><br></br></p>
+<h1 id="Go语言中的切片"><a href="#Go语言中的切片" class="headerlink" title="Go语言中的切片"></a>Go语言中的切片</h1><p>Go语言中可变长度的”数组”——切片<code>slice</code><br><br></br></p>
+<h2 id="切片的创建"><a href="#切片的创建" class="headerlink" title="切片的创建"></a>切片的创建</h2><p>切片的声明方式和数组类似，写法上看就是声明一个没有长度的数组：<code>var 切片名 []切片类型</code>。其中切片类型可以是切片本身，也就是切片的切片，就构成了多维的切片。切片在使用之前必须要初始化，它没有零值。声明后它的值是 nil，这是因为它的底层实现是一个指向数组的指针，在你给它存入一个数组的地址之前，它只能是 nil。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">&quot;fmt&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> a []<span class="keyword">int</span></span><br><span class="line">    fmt.Println(<span class="string">&quot;初始化前：&quot;</span>, a)</span><br><span class="line">    a = <span class="built_in">make</span>([]<span class="keyword">int</span>, <span class="number">5</span>, <span class="number">10</span>)</span><br><span class="line">    fmt.Println(<span class="string">&quot;初始化后：&quot;</span>, a)</span><br><span class="line">    a[<span class="number">4</span>] = <span class="number">5</span></span><br><span class="line">    fmt.Println(<span class="string">&quot;  赋值后：&quot;</span>, a)</span><br><span class="line">    a[<span class="number">5</span>] = <span class="number">6</span></span><br><span class="line">    fmt.Println(<span class="string">&quot;赋值后：&quot;</span>, a)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></br></p>
+<h2 id="切片的截取"><a href="#切片的截取" class="headerlink" title="切片的截取"></a>切片的截取</h2><p>切片之所以被叫做切片是有原因的，它可以从任意长度开始切，切到任意长度为止，然后这一段拿出来就是一个新的切片。<br>切割形式为 <code>切片名(s)[起始下标(begin):结束下标(end):最大容量(max)]</code></p>
+<p>切片截取形式表<br>|操作| 含义|<br>| —- | —-  |<br>|s[begin?max] |    截取切片s从begin到end的数据，构成一个容量为max-begin，长度为begin-end的切片。（用的不多）|<br>|s[begin:end] |    截取切片s从begin到end的数据，构成一个容量和长度均为begin-end的切片。|<br>|s[begin:] | 截取切片s从begin到最后的数据，构成一个容量和长度均为len(s)-end的切片。|<br>|s[:end] | 截取切片s从0到最后的数据，构成一个容量和长度均为end-0的切片。|</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">&quot;fmt&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> a = []<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;</span><br><span class="line">    fmt.Println(<span class="string">&quot;a[1:3]=&quot;</span>, a[<span class="number">1</span>:<span class="number">3</span>])</span><br><span class="line">    fmt.Println(<span class="string">&quot;a[1:]=&quot;</span>, a[<span class="number">1</span>:])</span><br><span class="line">    fmt.Println(<span class="string">&quot;a[:3]=&quot;</span>, a[:<span class="number">3</span>])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></br></p>
+<h2 id="切片的追加"><a href="#切片的追加" class="headerlink" title="切片的追加"></a>切片的追加</h2><p>切片使用一个 Go 语言的内置函数<code>append(切片，待添加的值)</code>，来进行切片末尾元素的追加。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">&quot;fmt&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> a = []<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;</span><br><span class="line">    a = <span class="built_in">append</span>(a, <span class="number">6</span>)</span><br><span class="line">    fmt.Println(a)</span><br><span class="line">    a = <span class="built_in">append</span>(a, <span class="number">7</span>, <span class="number">8</span>)</span><br><span class="line">    fmt.Println(a)</span><br><span class="line">    b := []<span class="keyword">int</span>&#123;<span class="number">9</span>, <span class="number">10</span>&#125;</span><br><span class="line">    a = <span class="built_in">append</span>(a, b...)</span><br><span class="line">    fmt.Println(a)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></br></p>
+<h2 id="切片的长度和容量"><a href="#切片的长度和容量" class="headerlink" title="切片的长度和容量"></a>切片的长度和容量</h2><p>在切片中可以使用<code>len()</code>获取切片中元素的数量，也就是切片的长度。使用<code>cap()</code>可以获取切片引用的数组的长度，也就切片的容量。切片的容量一般大于等于长度，容量会随着长度的增长而增长。<br>在初始化一个切片的时候其实时给切片引用了一个数组，然后容量就是这个数组的长度，然后如果切片的长度超过了切片的容量，它就会让切片引用一个容量更大数组来存放这些元素。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">&quot;fmt&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> a = []<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;</span><br><span class="line">    fmt.Printf(<span class="string">&quot;a的地址%p，a的长度%d，a的容量%d\n&quot;</span>, a, <span class="built_in">len</span>(a), <span class="built_in">cap</span>(a))</span><br><span class="line">    a = <span class="built_in">append</span>(a, <span class="number">6</span>)</span><br><span class="line">    fmt.Printf(<span class="string">&quot;a的地址%p，a的长度%d，a的容量%d\n&quot;</span>, a, <span class="built_in">len</span>(a), <span class="built_in">cap</span>(a))</span><br><span class="line">    a = <span class="built_in">append</span>(a, <span class="number">7</span>, <span class="number">8</span>)</span><br><span class="line">    fmt.Printf(<span class="string">&quot;a的地址%p，a的长度%d，a的容量%d\n&quot;</span>, a, <span class="built_in">len</span>(a), <span class="built_in">cap</span>(a))</span><br><span class="line">    b := []<span class="keyword">int</span>&#123;<span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>&#125;</span><br><span class="line">    a = <span class="built_in">append</span>(a, b...)</span><br><span class="line">    fmt.Printf(<span class="string">&quot;a的地址%p，a的长度%d，a的容量%d\n&quot;</span>, a, <span class="built_in">len</span>(a), <span class="built_in">cap</span>(a))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>能从执行结果看到，在切片a每次添加的元素要超过它的容量时，它的地址就会发生改变，其实就是让它引用了一个新的容量更大的数组。<br><br></br></p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>切片在使用前需要初始化。<br><br>切片的本质是一个指针数组，但是它的地址会随着长度超过容量而改变。<br><br>在应用场景中一般都使用切片。<br><br><br></br></p>
+<h1 id="Go语言中的Map"><a href="#Go语言中的Map" class="headerlink" title="Go语言中的Map"></a>Go语言中的Map</h1><p><code>map</code>是一种元素对的无序集合，每一个索引(key)对应一个值(value)。<code>map</code> 是一种能够通过索引(key)迅速找到值(value)的数据结构，所以也被称为字典。在 Go 语言中因为线程安全问题，一共实现了两种类型的<code>map</code>。<br><br></br></p>
+<h2 id="无锁的map"><a href="#无锁的map" class="headerlink" title="无锁的map"></a>无锁的map</h2><p>这种类型的 map 是线程不安全的 map，多个线程同时访问这个类型的 map 的同一个变量时，会有读写冲突，会导致系统奔溃。所以一般在单线程程序中使用的较多。</p>
+<h3 id="map的创建"><a href="#map的创建" class="headerlink" title="map的创建"></a>map的创建</h3><p>map 的底层结构也是一个指针，所以和变量不同，并不是声明后立刻能够使用。和切片相同，需要使用make()函数进行初始化。在初始化之前为空，没有零值。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">&quot;fmt&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> m <span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">string</span></span><br><span class="line">    fmt.Println(m == <span class="literal">nil</span>)</span><br><span class="line">    m = <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">string</span>)</span><br><span class="line">    fmt.Println(m == <span class="literal">nil</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></br></p>
+<h3 id="map的赋值"><a href="#map的赋值" class="headerlink" title="map的赋值"></a>map的赋值</h3><p>map 的赋值有两种方式：<br><br>使用:=使map在定义的时候直接赋值。<br><br>使用map[key]=value的形式对map进行赋值。<br><br>在明确知道 map 的值的时候就可以使用第一种方式进行赋值，比如说在建立中英文对应关系的时候。在未知 map 的取值时，一般建议使用后者进行赋值。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    m1 := <span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">string</span>&#123;<span class="string">&quot;Apple&quot;</span>: <span class="string">&quot;苹果&quot;</span>, <span class="string">&quot;Orange&quot;</span>: <span class="string">&quot;橘子&quot;</span>, <span class="string">&quot;Banana&quot;</span>: <span class="string">&quot;香蕉&quot;</span>&#125;</span><br><span class="line">    fmt.Println(m1[<span class="string">&quot;Apple&quot;</span>])</span><br><span class="line">    m2 := <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">string</span>)</span><br><span class="line">    m2[<span class="string">&quot;Apple&quot;</span>] = <span class="string">&quot;苹果&quot;</span></span><br><span class="line">    m2[<span class="string">&quot;Orange&quot;</span>] = <span class="string">&quot;橘子&quot;</span></span><br><span class="line">    m2[<span class="string">&quot;Banana&quot;</span>] = <span class="string">&quot;香蕉&quot;</span></span><br><span class="line">    fmt.Println(m2[<span class="string">&quot;Apple&quot;</span>])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></br></p>
+<h3 id="map的遍历"><a href="#map的遍历" class="headerlink" title="map的遍历"></a>map的遍历</h3><p>map 是字典结构，如果不清楚所有 key 的值，是无法对 map 进行遍历的，所以 Go 语言中使用了一个叫做range的关键字，配合for循环结构来对map结构进行遍历。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    m := <span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">string</span>&#123;<span class="string">&quot;Apple&quot;</span>: <span class="string">&quot;苹果&quot;</span>, <span class="string">&quot;Orange&quot;</span>: <span class="string">&quot;橘子&quot;</span>, <span class="string">&quot;Banana&quot;</span>: <span class="string">&quot;香蕉&quot;</span>&#125;</span><br><span class="line">    <span class="keyword">for</span> k, v := <span class="keyword">range</span> m &#123;</span><br><span class="line">        fmt.Println(<span class="string">&quot;key:&quot;</span>, k, <span class="string">&quot;, value:&quot;</span>, v)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意：map是无序的，所以每次输出的顺序可能会不一样。<br><br></br></p>
+<h3 id="map的删除"><a href="#map的删除" class="headerlink" title="map的删除"></a>map的删除</h3><p>map 在普通的用法中是无法移除只可以增加 key 和 value 的，所以 Go 语言中使用了一个内置函数delete(map,key)来移除 map 中的 key 和 value。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    m := <span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">string</span>&#123;<span class="string">&quot;Apple&quot;</span>: <span class="string">&quot;苹果&quot;</span>, <span class="string">&quot;Orange&quot;</span>: <span class="string">&quot;橘子&quot;</span>, <span class="string">&quot;Banana&quot;</span>: <span class="string">&quot;香蕉&quot;</span>&#125;</span><br><span class="line">    fmt.Println(m)</span><br><span class="line">    <span class="built_in">delete</span>(m, <span class="string">&quot;Apple&quot;</span>)</span><br><span class="line">    fmt.Println(m)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></br></p>
+]]></content>
+      <categories>
+        <category>note</category>
+      </categories>
+      <tags>
+        <tag>note</tag>
+        <tag>go</tag>
       </tags>
   </entry>
   <entry>
@@ -442,6 +763,7 @@
       </categories>
       <tags>
         <tag>小说</tag>
+        <tag>牧尾同学记事簿</tag>
       </tags>
   </entry>
   <entry>
@@ -485,99 +807,10 @@
     <url>/2021/05/30/question/%E9%A2%98%E5%BA%93%E7%AC%AC%E4%B8%80%E6%9C%9F/</url>
     <content><![CDATA[<h1 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h1><p>放一点学习过程中，觉得有意思的题目。</p>
 <h1 id="进入题库理由"><a href="#进入题库理由" class="headerlink" title="进入题库理由"></a>进入题库理由</h1><p>在学习数据结构的过程中，接触到了栈与队列。<br>栈的特性是先入后出<br>而队列的特性是先入先出<br>明明看起来并不相干，但这二者却都能在通过一点算法的帮助下实现对方。</p>
-<h1 id="如何用栈实现队列"><a href="#如何用栈实现队列" class="headerlink" title="如何用栈实现队列"></a>如何用栈实现队列</h1><pre><code>import java.util.Stack;
-public class test
-&#123;
-    private Stack&lt;Integer&gt; a = new Stack&lt;Integer&gt;();       
-    private Stack&lt;Integer&gt; b = new Stack&lt;Integer&gt;();
+<h1 id="如何用栈实现队列"><a href="#如何用栈实现队列" class="headerlink" title="如何用栈实现队列"></a>如何用栈实现队列</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Stack;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Stack&lt;Integer&gt; a = <span class="keyword">new</span> Stack&lt;Integer&gt;();       </span><br><span class="line">    <span class="keyword">private</span> Stack&lt;Integer&gt; b = <span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">enQueue</span><span class="params">(<span class="keyword">int</span> element)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        a.push(element);</span><br><span class="line">        <span class="keyword">while</span>(!a.empty())</span><br><span class="line">        &#123;</span><br><span class="line">            b.push(a.pop());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">deQueue</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(b.empty())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(a.empty())</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> b.pop();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">top</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> b.peek();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">empty</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> b.empty();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        test t = <span class="keyword">new</span> test();</span><br><span class="line">        t.enQueue(<span class="number">1</span>);</span><br><span class="line">        t.enQueue(<span class="number">2</span>);</span><br><span class="line">        t.enQueue(<span class="number">3</span>);</span><br><span class="line">        t.enQueue(<span class="number">4</span>);</span><br><span class="line">        t.deQueue();</span><br><span class="line">        t.deQueue();</span><br><span class="line">        System.out.println(t.top());</span><br><span class="line">        System.out.println(t.empty());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    public void enQueue(int element)
-    &#123;
-        a.push(element);
-        while(!a.empty())
-        &#123;
-            b.push(a.pop());
-        &#125;
-    &#125;
-    public Integer deQueue()
-    &#123;
-        if(b.empty())
-        &#123;
-            if(a.empty())
-            &#123;
-                return null;
-            &#125;
-        &#125;
-        return b.pop();
-    &#125;
-    public Integer top()
-    &#123;
-        return b.peek();
-    &#125;
-    public boolean empty()
-    &#123;
-        return b.empty();
-    &#125;
-    public static void main(String[] args)
-    &#123;
-        test t = new test();
-        t.enQueue(1);
-        t.enQueue(2);
-        t.enQueue(3);
-        t.enQueue(4);
-        t.deQueue();
-        t.deQueue();
-        System.out.println(t.top());
-        System.out.println(t.empty());
-    &#125;
-&#125;
-</code></pre>
-<h1 id="如何用队列实现栈"><a href="#如何用队列实现栈" class="headerlink" title="如何用队列实现栈"></a>如何用队列实现栈</h1><pre><code>import java.util.LinkedList;
-import java.util.Queue;
+<h1 id="如何用队列实现栈"><a href="#如何用队列实现栈" class="headerlink" title="如何用队列实现栈"></a>如何用队列实现栈</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.LinkedList;</span><br><span class="line"><span class="keyword">import</span> java.util.Queue;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test2</span> </span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Queue&lt;Integer&gt; a = <span class="keyword">new</span> LinkedList();</span><br><span class="line">    <span class="keyword">private</span> Queue&lt;Integer&gt; b = <span class="keyword">new</span> LinkedList();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> element)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        a.offer(element);</span><br><span class="line">        <span class="keyword">while</span>(!b.isEmpty())</span><br><span class="line">        &#123;</span><br><span class="line">            a.offer(b.poll());</span><br><span class="line">        &#125;</span><br><span class="line">        Queue temp = a;</span><br><span class="line">        a = b;</span><br><span class="line">        b = temp;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">pop</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> b.poll();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">top</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> b.peek();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">empty</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> b.isEmpty();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        test2 a = <span class="keyword">new</span> test2();</span><br><span class="line">        a.push(<span class="number">1</span>);</span><br><span class="line">        a.push(<span class="number">2</span>);</span><br><span class="line">        a.pop();</span><br><span class="line">        System.out.println(a.top());</span><br><span class="line">        System.out.println(a.empty());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-public class test2 
-&#123;
-    private Queue&lt;Integer&gt; a = new LinkedList();
-    private Queue&lt;Integer&gt; b = new LinkedList();
-
-    public void push(int element)
-    &#123;
-        a.offer(element);
-        while(!b.isEmpty())
-        &#123;
-            a.offer(b.poll());
-        &#125;
-        Queue temp = a;
-        a = b;
-        b = temp;
-    &#125;
-
-    public int pop()
-    &#123;
-        return b.poll();
-    &#125;
-
-    public int top()
-    &#123;
-        return b.peek();
-    &#125;
-
-    public boolean empty()
-    &#123;
-        return b.isEmpty();
-    &#125;
-
-    public static void main(String[] args)
-    &#123;
-        test2 a = new test2();
-        a.push(1);
-        a.push(2);
-        a.pop();
-        System.out.println(a.top());
-        System.out.println(a.empty());
-    &#125;
-&#125;
-</code></pre>
 <h1 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h1><p>以上就是第一期的题库。<br>没错，我又在水博客了。</p>
 ]]></content>
       <categories>
