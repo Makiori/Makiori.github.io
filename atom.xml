@@ -36,9 +36,9 @@
     <category term="blog" scheme="http://example.com/categories/blog/"/>
     
     
-    <category term="学习" scheme="http://example.com/tags/%E5%AD%A6%E4%B9%A0/"/>
-    
     <category term="不务正业" scheme="http://example.com/tags/%E4%B8%8D%E5%8A%A1%E6%AD%A3%E4%B8%9A/"/>
+    
+    <category term="学习" scheme="http://example.com/tags/%E5%AD%A6%E4%B9%A0/"/>
     
     <category term="Python" scheme="http://example.com/tags/Python/"/>
     
