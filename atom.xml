@@ -145,13 +145,13 @@
     <category term="note" scheme="http://example.com/categories/note/"/>
     
     
-    <category term="SpringBoot" scheme="http://example.com/tags/SpringBoot/"/>
-    
     <category term="note" scheme="http://example.com/tags/note/"/>
     
     <category term="blog" scheme="http://example.com/tags/blog/"/>
     
     <category term="java" scheme="http://example.com/tags/java/"/>
+    
+    <category term="SpringBoot" scheme="http://example.com/tags/SpringBoot/"/>
     
   </entry>
   
@@ -511,9 +511,9 @@
     <category term="blog" scheme="http://example.com/categories/blog/"/>
     
     
-    <category term="日常" scheme="http://example.com/tags/%E6%97%A5%E5%B8%B8/"/>
-    
     <category term="学习" scheme="http://example.com/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="日常" scheme="http://example.com/tags/%E6%97%A5%E5%B8%B8/"/>
     
   </entry>
   
@@ -561,9 +561,9 @@
     <category term="blog" scheme="http://example.com/categories/blog/"/>
     
     
-    <category term="日常" scheme="http://example.com/tags/%E6%97%A5%E5%B8%B8/"/>
-    
     <category term="学习" scheme="http://example.com/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="日常" scheme="http://example.com/tags/%E6%97%A5%E5%B8%B8/"/>
     
   </entry>
   
